@@ -11,6 +11,9 @@
     fill: white;
   }
 }
+.ant-menu-item:hover::after {
+  border: none !important;
+}
 #logo path:nth-child(1) {
   stroke-dasharray: 549.0669555664062;
   stroke-dashoffset: 549.0669555664062;
@@ -45,6 +48,22 @@
 @media screen and (max-width: 1359px) {
   .link {
     font-size: 14px;
+  }
+}
+@media screen and (max-width: 750px) {
+  #logo {
+    height: 250px !important;
+    width: 70% !important;
+  }
+  .nav {
+    margin-top: -160px !important;
+  }
+}
+@media screen and (max-width: 540px) {
+  #logo {
+    height: 250px !important;
+    width: 90% !important;
+    margin-left: -45% !important;
   }
 }
 @media screen and (max-width: 502px) {
