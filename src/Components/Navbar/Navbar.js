@@ -28,7 +28,7 @@ export const Navbar = () => {
       <Header>
         <Row style={{ height: "100%", marginTop: "1%" }}>
           <Col xxl={2} xl={2} lg={2} xs={1} md={2} sm={1} />
-          <Col xxl={18} xl={18} lg={16} xs={16} md={16} sm={16}>
+          <Col xxl={22} xl={22} lg={16} xs={16} md={16} sm={16}>
             <a href="/">
               <svg
                 id="logo"
