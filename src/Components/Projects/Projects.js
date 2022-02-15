@@ -17,23 +17,28 @@ export const Projects = () => {
     image = image.reshape([64, 64, 3]);
     setImage(image);
   }
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isModalVisibleGan, setIsModalVisibleGan] = useState(false);
+  const [isModalVisibleRLGames, setIsModalVisibleRLGames] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [image, setImage] = useState(null);
 
-  const showModal = () => {
-    setIsModalVisible(true);
+  const showModalGan = () => {
+    setIsModalVisibleGan(true);
+  };
+
+  const showModalRLGames = () => {
+    setIsModalVisibleRLGames(true);
   };
 
   const handleCancel = () => {
-    setIsModalVisible(false);
+    setIsModalVisibleGan(false);
+    setIsModalVisibleRLGames(false);
     setIsLoading(false);
   };
 
   useEffect(() => {
     if (image) {
       image.array().then((imageData) => {
-        console.log(imageData);
         const canvas = document.querySelector(".canvas");
         const ctx = canvas.getContext("2d");
         for (var i = 0; i < imageData.length; i++) {
@@ -201,6 +206,30 @@ export const Projects = () => {
             >
               Tensorflow OpenAI Gym Matplotlib
             </p>
+            <Button type="primary" onClick={showModalRLGames}>
+              See it in action!
+            </Button>
+            <Modal
+              title="Game example"
+              visible={isModalVisibleRLGames}
+              onCancel={handleCancel}
+              width={1000}
+              footer={[
+                <Button key="back" onClick={handleCancel}>
+                  Cancel
+                </Button>,
+              ]}
+            >
+              <p>
+                <video width="100%" height="100%" controls>
+                  <source src="videos/rl_games.webm" type="video/webm" />
+                  Your browser does not support the video tag.
+                </video>
+              </p>
+              {image && (
+                <canvas className="canvas" height="64px" width="64px" />
+              )}
+            </Modal>
           </Card>
         </Col>
         <Col xxl={0} xl={0} lg={3} xs={2} md={3} sm={3} />
@@ -266,12 +295,12 @@ export const Projects = () => {
             >
               Tensorflow NumPy PIL Matplotlib
             </p>
-            <Button type="primary" onClick={showModal}>
+            <Button type="primary" onClick={showModalGan}>
               Try it out!
             </Button>
             <Modal
               title="Create your own Anime Face"
-              visible={isModalVisible}
+              visible={isModalVisibleGan}
               onCancel={handleCancel}
               footer={[
                 <Button key="back" onClick={handleCancel}>
@@ -287,7 +316,10 @@ export const Projects = () => {
                 </Button>,
               ]}
             >
-              <p>Click on create! </p>
+              <p>
+                Click on create! (It would take some time the first time you
+                click)
+              </p>
               {image && (
                 <canvas className="canvas" height="64px" width="64px" />
               )}
