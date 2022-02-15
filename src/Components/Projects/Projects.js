@@ -19,6 +19,7 @@ export const Projects = () => {
   }
   const [isModalVisibleGan, setIsModalVisibleGan] = useState(false);
   const [isModalVisibleRLGames, setIsModalVisibleRLGames] = useState(false);
+  const [isModalVisibleLander, setIsModalVisibleLander] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [image, setImage] = useState(null);
 
@@ -30,9 +31,13 @@ export const Projects = () => {
     setIsModalVisibleRLGames(true);
   };
 
+  const showModalLander = () => {
+    setIsModalVisibleLander(true);
+  };
   const handleCancel = () => {
     setIsModalVisibleGan(false);
     setIsModalVisibleRLGames(false);
+    setIsModalVisibleLander(false);
     setIsLoading(false);
   };
 
@@ -138,7 +143,7 @@ export const Projects = () => {
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
                 backgroundColor: "#141414",
-                marginTop: "27px",
+                marginTop: "47px",
               }}
             >
               Tensorflow YOLOv4 DeepSORT Tesseract
@@ -206,7 +211,7 @@ export const Projects = () => {
             >
               Tensorflow OpenAI Gym Matplotlib
             </p>
-            <Button type="primary" onClick={showModalRLGames}>
+            <Button type="primary" shape="round" onClick={showModalRLGames}>
               See it in action!
             </Button>
             <Modal
@@ -226,9 +231,6 @@ export const Projects = () => {
                   Your browser does not support the video tag.
                 </video>
               </p>
-              {image && (
-                <canvas className="canvas" height="64px" width="64px" />
-              )}
             </Modal>
           </Card>
         </Col>
@@ -244,7 +246,7 @@ export const Projects = () => {
             bodyStyle={{ backgroundColor: "#141414" }}
             bordered={false}
             hoverable={true}
-            title="Wasserstein GAN with Gradient Penalty"
+            title="WGAN-GP"
             extra={
               <a
                 onMouseOver={handleHover}
@@ -291,11 +293,12 @@ export const Projects = () => {
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
                 backgroundColor: "#141414",
+                marginTop: "7px",
               }}
             >
               Tensorflow NumPy PIL Matplotlib
             </p>
-            <Button type="primary" onClick={showModalGan}>
+            <Button type="primary" shape="round" onClick={showModalGan}>
               Try it out!
             </Button>
             <Modal
@@ -472,6 +475,27 @@ export const Projects = () => {
             >
               Tensorflow NumPy Matplotlib
             </p>
+            <Button type="primary" shape="round" onClick={showModalLander}>
+              See it in action!
+            </Button>
+            <Modal
+              title="Video example"
+              visible={isModalVisibleLander}
+              onCancel={handleCancel}
+              width={800}
+              footer={[
+                <Button key="back" onClick={handleCancel}>
+                  Cancel
+                </Button>,
+              ]}
+            >
+              <p>
+                <video width="100%" height="100%" controls>
+                  <source src="videos/lander.webm" type="video/webm" />
+                  Your browser does not support the video tag.
+                </video>
+              </p>
+            </Modal>
           </Card>
         </Col>
         <Col xxl={0} xl={0} lg={3} xs={2} md={3} sm={3} />
