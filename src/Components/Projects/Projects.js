@@ -1,11 +1,46 @@
 import { Row, Col, Card } from "antd";
 import "./Projects.css";
+import * as tf from "@tensorflow/tfjs";
+import { useEffect, useState } from "react";
 export const Projects = () => {
   const handleHover = (e) => {
     e.target.style.cursor = "none";
     e.target.style.color = "rgba(255, 255, 255, 0.85)";
     e.target.style["border-bottom"] = "none";
   };
+
+  async function genImage() {
+    const model = await tf.loadLayersModel("/tfjs/gan/model.json");
+    const noise = tf.randomNormal([1, 1, 1, 128]);
+    let image = model.predict(noise);
+    image = image.reshape([64, 64, 3]);
+    // for (var i in image) {
+    //   image[i] = (image[i] + 1) * 0.5 * 255;
+    // }
+    // image = new Uint8Array(image.buffer);
+    setImage(image);
+  }
+
+  const [image, setImage] = useState(null);
+  useEffect(() => {
+    if (image) {
+      image.array().then((imageData) => {
+        console.log(imageData);
+        const canvas = document.querySelector(".canvas");
+        const ctx = canvas.getContext("2d");
+        for (var i = 0; i < imageData.length; i++) {
+          for (var j = 0; j < imageData[i].length; j++) {
+            var red = (imageData[j][i][0] + 1) * 0.5 * 255;
+            var green = (imageData[j][i][1] + 1) * 0.5 * 255;
+            var blue = (imageData[j][i][2] + 1) * 0.5 * 255;
+            ctx.fillStyle = "rgb(" + red + "," + green + "," + blue + ")";
+            ctx.fillRect(i, j, 1, 1);
+          }
+        }
+      });
+    }
+  }, [image]);
+
   return (
     <div id="projects">
       <Row style={{ marginTop: "37vh" }}>
@@ -103,8 +138,8 @@ export const Projects = () => {
             data-aos="fade-up"
             data-aos-delay="0"
             data-aos-once
-            className="card-2"
-            style={{ margin: "3%", height: "95%" }}
+            className="discord-codebot-card"
+            style={{ margin: "3%", height: "200px" }}
             bodyStyle={{ backgroundColor: "#141414" }}
             bordered={false}
             hoverable={true}
@@ -179,6 +214,7 @@ export const Projects = () => {
                 rel="noreferrer"
                 style={{ color: "white" }}
                 href="https://github.com/Cynamide/GAN/"
+                onClick={genImage}
               >
                 GitHub
               </a>
@@ -195,7 +231,7 @@ export const Projects = () => {
               This is my TensorFlow implementations of Wasserstein GANs with
               Gradient Penalty (WGAN-GP) proposed in Improved Training of
               Wasserstein GANs. This project generates images from a latent
-              space of 120 dimensions
+              space of 128 dimensions
             </p>
             <p
               className="description-3"
@@ -221,6 +257,7 @@ export const Projects = () => {
             >
               Tensorflow NumPy PIL Matplotlib
             </p>
+            {image && <canvas className="canvas" height="64px" width="64px" />}
           </Card>
         </Col>
         <Col xxl={3} xl={3} lg={3} xs={2} md={3} sm={3} />
