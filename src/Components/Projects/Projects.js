@@ -10,14 +10,11 @@ export const Projects = () => {
   };
 
   async function genImage() {
+    setIsLoading(true);
     const model = await tf.loadLayersModel("/tfjs/gan/model.json");
     const noise = tf.randomNormal([1, 1, 1, 128]);
     let image = model.predict(noise);
     image = image.reshape([64, 64, 3]);
-    // for (var i in image) {
-    //   image[i] = (image[i] + 1) * 0.5 * 255;
-    // }
-    // image = new Uint8Array(image.buffer);
     setImage(image);
   }
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -35,7 +32,6 @@ export const Projects = () => {
 
   useEffect(() => {
     if (image) {
-      setIsLoading(true);
       image.array().then((imageData) => {
         console.log(imageData);
         const canvas = document.querySelector(".canvas");
