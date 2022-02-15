@@ -49,7 +49,7 @@ export const Experience = () => {
               textDecoration: "underline",
               textDecorationColor: "rgb(168, 164, 164)",
             }}
-            className="prepiit-heading"
+            className="heading-1"
           >
             <b>
               <a
@@ -143,7 +143,7 @@ export const Experience = () => {
               textDecoration: "underline",
               textDecorationColor: "rgb(168, 164, 164)",
             }}
-            className="imocha-heading"
+            className="heading-2"
           >
             <b>
               <a

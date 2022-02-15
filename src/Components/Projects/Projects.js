@@ -40,7 +40,7 @@ export const Projects = () => {
             data-aos="fade-up"
             data-aos-delay="0"
             data-aos-once
-            className="remote-code-card"
+            className="card-1"
             style={{ margin: "3%", height: "95%" }}
             bodyStyle={{ backgroundColor: "#141414" }}
             bordered={false}
@@ -59,7 +59,7 @@ export const Projects = () => {
             }
           >
             <p
-              className="rce-description"
+              className="description-1"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -72,7 +72,7 @@ export const Projects = () => {
               supported with the help of YOLOv4, DeepSORT and Tensorflow
             </p>
             <p
-              className="rce-description"
+              className="description-1"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -84,7 +84,7 @@ export const Projects = () => {
               submission was among the top 6 solutions across 8 different themes
             </p>
             <p
-              className="rce-description"
+              className="description-1"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -103,7 +103,7 @@ export const Projects = () => {
             data-aos="fade-up"
             data-aos-delay="0"
             data-aos-once
-            className="discord-codebot-card"
+            className="card-2"
             style={{ margin: "3%", height: "95%" }}
             bodyStyle={{ backgroundColor: "#141414" }}
             bordered={false}
@@ -122,7 +122,7 @@ export const Projects = () => {
             }
           >
             <p
-              className="codebot-description"
+              className="description-2"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -135,7 +135,7 @@ export const Projects = () => {
               environment using Reinforcement Learning methods
             </p>
             <p
-              className="codebot-description"
+              className="description-2"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -147,7 +147,7 @@ export const Projects = () => {
               using the Deep Q-Learning algorithm as well as Minimax Algorithm.
             </p>
             <p
-              className="codebot-description"
+              className="description-2"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -166,7 +166,7 @@ export const Projects = () => {
             data-aos="fade-up"
             data-aos-delay="0"
             data-aos-once
-            className="portfolio-card"
+            className="card-3"
             style={{ margin: "3%", height: "95%" }}
             bodyStyle={{ backgroundColor: "#141414" }}
             bordered={false}
@@ -185,7 +185,7 @@ export const Projects = () => {
             }
           >
             <p
-              className="portfolio-description"
+              className="description-3"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -198,7 +198,7 @@ export const Projects = () => {
               space of 120 dimensions
             </p>
             <p
-              className="portfolio-description"
+              className="description-3"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -212,7 +212,7 @@ export const Projects = () => {
             <br />
             <br />
             <p
-              className="portfolio-description"
+              className="description-3"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -232,7 +232,7 @@ export const Projects = () => {
             data-aos="fade-up"
             data-aos-delay="0"
             data-aos-once
-            className="chatting-app-card"
+            className="card-4"
             style={{ margin: "3%", height: "95%" }}
             bodyStyle={{ backgroundColor: "#141414" }}
             bordered={false}
@@ -251,7 +251,7 @@ export const Projects = () => {
             }
           >
             <p
-              className="chatting-description"
+              className="description-4"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -262,7 +262,7 @@ export const Projects = () => {
               using U-net model
             </p>
             <p
-              className="chatting-description"
+              className="description-4"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -274,7 +274,7 @@ export const Projects = () => {
               interesting architectures.
             </p>
             <p
-              className="chatting-description"
+              className="description-4"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -286,7 +286,7 @@ export const Projects = () => {
               MobileNetV2 as the Encoding stack of model.
             </p>
             <p
-              className="chatting-description"
+              className="description-4"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -305,7 +305,7 @@ export const Projects = () => {
             data-aos="fade-up"
             data-aos-delay="0"
             data-aos-once
-            className="discord-musicbot-card"
+            className="card-5"
             style={{ margin: "3%", height: "95%" }}
             bodyStyle={{ backgroundColor: "#141414" }}
             bordered={false}
@@ -324,7 +324,7 @@ export const Projects = () => {
             }
           >
             <p
-              className="musicbot-description"
+              className="description-5"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -336,7 +336,7 @@ export const Projects = () => {
               task is to land the space-ship between the flags smoothly.
             </p>
             <p
-              className="musicbot-description"
+              className="description-5"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -348,7 +348,7 @@ export const Projects = () => {
               episodes.
             </p>
             <p
-              className="musicbot-description"
+              className="description-5"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
@@ -360,7 +360,7 @@ export const Projects = () => {
               to solve the Environment.
             </p>
             <p
-              className="chatting-description"
+              className="description-4"
               style={{
                 textAlign: "left",
                 color: "rgb(168, 164, 164)",
