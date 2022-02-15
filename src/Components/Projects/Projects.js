@@ -1,4 +1,4 @@
-import { Row, Col, Card } from "antd";
+import { Row, Col, Card, Button, Modal } from "antd";
 import "./Projects.css";
 import * as tf from "@tensorflow/tfjs";
 import { useEffect, useState } from "react";
@@ -20,10 +20,22 @@ export const Projects = () => {
     // image = new Uint8Array(image.buffer);
     setImage(image);
   }
-
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [image, setImage] = useState(null);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+    setIsLoading(false);
+  };
+
   useEffect(() => {
     if (image) {
+      setIsLoading(true);
       image.array().then((imageData) => {
         console.log(imageData);
         const canvas = document.querySelector(".canvas");
@@ -38,6 +50,7 @@ export const Projects = () => {
           }
         }
       });
+      setIsLoading(false);
     }
   }, [image]);
 
@@ -139,7 +152,7 @@ export const Projects = () => {
             data-aos-delay="0"
             data-aos-once
             className="discord-codebot-card"
-            style={{ margin: "3%", height: "200px" }}
+            style={{ margin: "3%", height: "95% " }}
             bodyStyle={{ backgroundColor: "#141414" }}
             bordered={false}
             hoverable={true}
@@ -257,7 +270,32 @@ export const Projects = () => {
             >
               Tensorflow NumPy PIL Matplotlib
             </p>
-            {image && <canvas className="canvas" height="64px" width="64px" />}
+            <Button type="primary" onClick={showModal}>
+              Try it out!
+            </Button>
+            <Modal
+              title="Create your own Anime Face"
+              visible={isModalVisible}
+              onCancel={handleCancel}
+              footer={[
+                <Button key="back" onClick={handleCancel}>
+                  Cancel
+                </Button>,
+                <Button
+                  key="submit"
+                  type="primary"
+                  loading={isLoading}
+                  onClick={genImage}
+                >
+                  Create
+                </Button>,
+              ]}
+            >
+              <p>Click on create! </p>
+              {image && (
+                <canvas className="canvas" height="64px" width="64px" />
+              )}
+            </Modal>
           </Card>
         </Col>
         <Col xxl={3} xl={3} lg={3} xs={2} md={3} sm={3} />

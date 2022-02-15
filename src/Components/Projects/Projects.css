@@ -12,6 +12,11 @@
   border: 2px solid #141414;
   background-color: #141414;
 }
+.ant-btn-primary {
+  background-color: rgb(20, 20, 20) !important;
+  border: 1px solid rgb(61, 60, 60) !important;
+}
+
 @media screen and (min-width: 3840px) {
   .projects-heading {
     font-size: 40px;
