@@ -9,19 +9,34 @@ export const Projects = () => {
     e.target.style["border-bottom"] = "none";
   };
 
-  async function genImage() {
-    setIsLoading(true);
-    const model = await tf.loadLayersModel("/tfjs/gan/model.json");
-    const noise = tf.randomNormal([1, 1, 1, 128]);
-    let image = model.predict(noise);
-    image = image.reshape([64, 64, 3]);
-    setImage(image);
-  }
   const [isModalVisibleGan, setIsModalVisibleGan] = useState(false);
   const [isModalVisibleRLGames, setIsModalVisibleRLGames] = useState(false);
   const [isModalVisibleLander, setIsModalVisibleLander] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [image, setImage] = useState(null);
+  const [model, setModel] = useState(null);
+
+  async function genImage() {
+    setIsLoading(true);
+    if (model) {
+      const noise = tf.randomNormal([1, 1, 1, 128]);
+      let image = model.predict(noise);
+      image = image.reshape([64, 64, 3]);
+      setImage(image);
+    } else {
+      const mod = await tf.loadLayersModel("/tfjs/gan/model.json");
+      setModel(mod);
+    }
+  }
+
+  useEffect(() => {
+    if (model) {
+      const noise = tf.randomNormal([1, 1, 1, 128]);
+      let image = model.predict(noise);
+      image = image.reshape([64, 64, 3]);
+      setImage(image);
+    }
+  }, [model]);
 
   const showModalGan = () => {
     setIsModalVisibleGan(true);
@@ -34,6 +49,7 @@ export const Projects = () => {
   const showModalLander = () => {
     setIsModalVisibleLander(true);
   };
+
   const handleCancel = () => {
     setIsModalVisibleGan(false);
     setIsModalVisibleRLGames(false);
