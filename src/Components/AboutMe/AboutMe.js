@@ -78,11 +78,7 @@ export const AboutMe = () => {
           <section className="main">
             <div className="container">
               <div className="img-container">
-                <img
-                  className="image"
-                  src="https://i.imgur.com/aLZ4Fla.png"
-                  alt="MyFace"
-                />
+                <img className="image" src="profile.webp" alt="MyFace" />
               </div>
             </div>
           </section>

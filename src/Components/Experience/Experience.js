@@ -30,7 +30,7 @@ export const Experience = () => {
           </h1>
         </Col>
       </Row>
-      <Row style={{ marginTop: "13px" }}>
+      <Row style={{ marginTop: "50px" }}>
         <Col xxl={5} xl={5} lg={3} xs={2} md={3} sm={3} />
         <Col
           xxl={5}
@@ -83,7 +83,7 @@ export const Experience = () => {
             data-aos-once
             className="role-heading"
             style={{
-              textDecoration: "underline",
+              fontSize: "1.2rem",
               textDecorationColor: "rgb(168, 164, 164)",
             }}
           >
@@ -98,33 +98,19 @@ export const Experience = () => {
             <li className="list">
               Created a proof of concept website from scratch where a user can
               login and run python scripts remotely on a device through the
-              website
+              website using ReactJS and Django. The code to be executed will be
+              shown along with real-time terminal output using WebSockets
             </li>
             <li className="list">
-              The backend of this website was created with Django-Rest-Framework
-              and frontend with ReactJS
-            </li>
-            <li className="list">
-              Support for one user to have multiple scripts executing on the
-              server by asynchronously running scripts in the background through
-              Celery as task queue and RabbitMQ as the message broker
-            </li>
-            <li className="list">
-              The code to be executed will be shown along with real-time
-              terminal output.
-            </li>
-            <li className="list">
-              Websockets were used to achieve this seamless output
-            </li>
-            <li className="list">
-              Built using Python, Django-Rest-Framework, Celery, RabbitMQ,
-              ReactJS, MongoDB, Websockets
+              Support for user to have multiple scripts executing on the server
+              by asynchronously running scripts in the background through Celery
+              as task queue and RabbitMQ as message broker.
             </li>
           </ul>
         </Col>
         <Col xxl={7} xl={7} lg={3} xs={2} md={3} sm={3} />
       </Row>
-      <Row style={{ marginTop: "50px" }}>
+      <Row style={{ marginTop: "80px" }}>
         <Col xxl={5} xl={5} lg={3} xs={2} md={3} sm={3} />
         <Col
           xxl={5}
@@ -153,7 +139,7 @@ export const Experience = () => {
                 rel="noreferrer"
                 onMouseOver={handleHover}
               >
-                RhythmFlows
+                RhythmFlows Solutions
               </a>
             </b>
           </h1>
@@ -177,11 +163,11 @@ export const Experience = () => {
             data-aos-once
             className="role-heading"
             style={{
-              textDecoration: "underline",
+              fontSize: "1.2rem",
               textDecorationColor: "rgb(168, 164, 164)",
             }}
           >
-            <b>Application Developement Intern</b>
+            <b>Software Developer</b>
           </h1>
           <ul
             data-aos="fade-up"
@@ -190,39 +176,96 @@ export const Experience = () => {
             style={{ color: "rgb(168, 164, 164)" }}
           >
             <li className="list">
-              Working at RhythmFlows as a Full Stack Development intern
+              Worked on file reconciliation system using BlazingSQL which
+              executes the ETL phase of workload 20x faster than Apache Spark.
+            </li>
+
+            <li className="list">
+              Extended the functionality of their OTT platform to send periodic
+              emails to over 150,000+ subscribers using Celery Beat.
             </li>
             <li className="list">
-              Working on a Client approved project, which will be deployed as a
-              Web Applicaion
+              Created a middleware server to handle the requests from different
+              sources (XML, JSON), extract useful information and create new
+              request for APIs.
             </li>
+          </ul>
+        </Col>
+        <Col xxl={7} xl={7} lg={3} xs={2} md={3} sm={3} />
+      </Row>
+      <Row style={{ marginTop: "80px" }}>
+        <Col xxl={5} xl={5} lg={3} xs={2} md={3} sm={3} />
+        <Col
+          xxl={5}
+          xl={5}
+          lg={18}
+          xs={10}
+          md={18}
+          sm={18}
+          style={{ textAlign: "left" }}
+        >
+          <h1
+            data-aos="fade-up"
+            data-aos-delay="0"
+            data-aos-once
+            style={{
+              textDecoration: "underline",
+              textDecorationColor: "rgb(168, 164, 164)",
+            }}
+            className="heading-2"
+          >
+            <b>
+              <a
+                style={{ color: "rgba(255, 255, 255, 0.85)" }}
+                href="https://rhythmflows.com/"
+                target="_blank"
+                rel="noreferrer"
+                onMouseOver={handleHover}
+              >
+                Bitglaze Technologies
+              </a>
+            </b>
+          </h1>
+        </Col>
+        <Col lg={4} />
+      </Row>
+      <Row>
+        <Col xxl={5} xl={5} lg={3} xs={2} md={3} sm={3} />
+        <Col
+          xxl={12}
+          xl={12}
+          lg={18}
+          xs={20}
+          md={18}
+          sm={18}
+          style={{ textAlign: "left" }}
+        >
+          <h1
+            data-aos="fade-up"
+            data-aos-delay="0"
+            data-aos-once
+            className="role-heading"
+            style={{
+              fontSize: "1.2rem",
+              textDecorationColor: "rgb(168, 164, 164)",
+            }}
+          >
+            <b>Frontend Developer Intern</b>
+          </h1>
+          <ul
+            data-aos="fade-up"
+            data-aos-delay="0"
+            data-aos-once
+            style={{ color: "rgb(168, 164, 164)" }}
+          >
             <li className="list">
-              This is being developed using BlazingSQL, Angular, and
-              Django-Rest-Framework
+              Created a React UI component library written in TypeScript using
+              TailwindCSS called GlazeUI.
             </li>
+
             <li className="list">
-              The Web Application is a Transaction Reconcilation Web
-              Application.
-            </li>
-            <li className="list">
-              Users can login and upload a source, for example in the form of a
-              CSV File. My automation script generates a table using the data
-              the user has provided
-            </li>
-            <li className="list">
-              In the current implementation, the user has to manually input the
-              source tables, and has to mark the columns for reconcilation, my
-              job is to make the procedure more user friendly.
-            </li>
-            <li className="list">
-              I am in the process of writing a script so that the user can
-              upload only the sources and the script will generate the tables as
-              well as the reconcilation automatically without any manual
-              intereference from the user.
-            </li>
-            <li className="list">
-              To ensure very high performance, I am using BlazingSQL which runs
-              queries on the GPU rather than taxing the CPU.
+              The Library contains over 50 UI components and variations and the
+              same will be used by upcoming Bitglaze solutions/products.
             </li>
           </ul>
         </Col>

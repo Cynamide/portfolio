@@ -314,7 +314,12 @@ export const Projects = () => {
             >
               Tensorflow NumPy PIL Matplotlib
             </p>
-            <Button type="primary" shape="round" onClick={showModalGan}>
+            <Button
+              style={{ BackgroundColor: "white" }}
+              type="primary"
+              shape="round"
+              onClick={showModalGan}
+            >
               Try it out!
             </Button>
             <Modal
