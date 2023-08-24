@@ -128,7 +128,7 @@ export const Navbar = () => {
                   onMouseOver={handleHover}
                   target="_blank"
                   rel="noreferrer"
-                  href="https://links.arjitagarwal.tech/resume"
+                  href="https://links.arjitagarwal.me/resume"
                 >
                   Resume
                 </a>

@@ -29,8 +29,8 @@ export const AboutMe = () => {
             data-aos-once
             className="about-first"
           >
-            I am a Third Year Student from Pune Institute of Computer
-            Technology, pursuing my B.E in Information Technology
+            I am a Masters Student from North Carolina State University,
+            currently pursuing my Masters in Computer Science.
           </p>
           <p
             data-aos="fade-up"
@@ -38,10 +38,10 @@ export const AboutMe = () => {
             data-aos-once
             className="about-second"
           >
-            I am an aspiring Deep Learning Engineer, I really enjoy building AI
-            applications and integrating them with the Web. I'm always eager to
-            learn new concepts and apply them in my projects. Currently I am
-            actively looking for new internship opportunities
+            I really enjoy building AI applications and integrating them with
+            the Web. I'm always eager to learn new concepts and apply them in my
+            projects. Currently, I am actively looking for new internship
+            opportunities
           </p>
           <p
             data-aos="fade-up"
@@ -51,8 +51,8 @@ export const AboutMe = () => {
           >
             I am a dedicated team player, and I get along well with any team
             environment. I do well under pressure which I feel makes me a good
-            addition to any team. I also have strong command over Deep Learning
-            and the various Technologies associated with it.
+            addition to any team. I also have strong command over Web
+            Development and the various Technologies associated with it.
           </p>
           <p
             data-aos="fade-up"

@@ -1,4 +1,5 @@
 import { Row, Col } from "antd";
+
 import "./Landing.css";
 export const Landing = () => {
   return (
@@ -47,12 +48,15 @@ export const Landing = () => {
             className="long-desc"
             style={{ color: "rgb(168, 164, 164)" }}
           >
-            I am a passionate Machine Learning and Deep Learning enthusiast,
+            I am a passionate Software Developer and Machine Learning
+            enthusiast,
             <br />
             specialising in Image Processing. I love building stuff and solving
+            problems,
             <br />
-            problems, and I'm currently pursing Information Technology from
-            <br /> Pune Institute of Computer Technology.
+            and I'm currently pursing Masters in Computer Science at
+            <br />
+            North Carolina State University.
           </p>
         </Col>
         <Col xxl={5} xl={5} lg={3} xs={2} md={3} sm={3} />

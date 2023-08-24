@@ -25,9 +25,9 @@ export const TechIKnow = () => {
           <br />
           <div data-aos="fade-up" data-aos-delay="100" data-aos-once>
             <p className="techiknow-first">
-              I love learning new things, the world of AI is constantly
-              changing, there is always something new to learn and I'm here for
-              every bit of that journey.
+              I love learning new things, the world of AI and Web Development is
+              constantly changing, there is always something new to learn and
+              I'm here for every bit of that journey.
               <br /> Applying new concepts and seeing them come to life is
               immensely satisfying and gives me a sense of massive pride
             </p>
@@ -35,7 +35,6 @@ export const TechIKnow = () => {
               In the process of learning new things, I have picked up quite a
               wide variety of skills.
             </p>
-            <p className="techiknow-third">My best skills include:</p>
           </div>
         </Col>
         <Col xxl={3} xl={3} lg={3} xs={2} md={3} sm={3} />
@@ -66,8 +65,8 @@ export const TechIKnow = () => {
             </h2>
             <p style={{ color: "rgb(168, 164, 164)" }} className="frameworks">
               ReactJS • Django-Rest-Framework • Tensorflow • Rapids BlazingSQL{" "}
-              <br /> Git/GitHub • Scikit-Learn•Jupyter Notebook • Unity3D <br />{" "}
-              Anaconda • Pandas • Ant Design OpenCV • Celery • RabbitMQ
+              <br /> Git/GitHub • Scikit-Learn • Jupyter Notebook • Unity3D{" "}
+              <br /> Anaconda • Pandas • Ant Design OpenCV • Celery • RabbitMQ
               WebSockets
             </p>
           </div>
@@ -125,7 +124,7 @@ export const TechIKnow = () => {
               <b>Languages</b>
             </h2>
             <p style={{ color: "rgb(168, 164, 164)" }} className="languages">
-              C/C++ • Python • Java • JavaScript • C#
+              Python • JavaScript • TypeScript • C/C++ • Java • C#
             </p>
           </div>
         </Col>
