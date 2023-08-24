@@ -113,8 +113,8 @@ export const Experience = () => {
       <Row style={{ marginTop: "80px" }}>
         <Col xxl={5} xl={5} lg={3} xs={2} md={3} sm={3} />
         <Col
-          xxl={5}
-          xl={5}
+          xxl={10}
+          xl={10}
           lg={18}
           xs={10}
           md={18}
@@ -181,13 +181,8 @@ export const Experience = () => {
             </li>
 
             <li className="list">
-              Extended the functionality of their OTT platform to send periodic
-              emails to over 150,000+ subscribers using Celery Beat.
-            </li>
-            <li className="list">
-              Created a middleware server to handle the requests from different
-              sources (XML, JSON), extract useful information and create new
-              request for APIs.
+              Extended the functionality of their OTT platform to send emails to
+              over 150,000+ subscribers using Celery Beat.
             </li>
           </ul>
         </Col>
@@ -264,8 +259,91 @@ export const Experience = () => {
             </li>
 
             <li className="list">
-              The Library contains over 50 UI components and variations and the
-              same will be used by upcoming Bitglaze solutions/products.
+              Created over 50 UI components and variations that will actively be
+              used by upcoming Bitglaze solutions/products.
+            </li>
+            <li className="list">
+              Built a No-Code MLOps platform to build end to end ML pipelines.
+              with CI/CD capabilities.
+            </li>
+          </ul>
+        </Col>
+        <Col xxl={7} xl={7} lg={3} xs={2} md={3} sm={3} />
+      </Row>
+      <Row style={{ marginTop: "80px" }}>
+        <Col xxl={5} xl={5} lg={3} xs={2} md={3} sm={3} />
+        <Col
+          xxl={5}
+          xl={5}
+          lg={18}
+          xs={10}
+          md={18}
+          sm={18}
+          style={{ textAlign: "left" }}
+        >
+          <h1
+            data-aos="fade-up"
+            data-aos-delay="0"
+            data-aos-once
+            style={{
+              textDecoration: "underline",
+              textDecorationColor: "rgb(168, 164, 164)",
+            }}
+            className="heading-2"
+          >
+            <b>
+              <a
+                style={{ color: "rgba(255, 255, 255, 0.85)" }}
+                href="https://rhythmflows.com/"
+                target="_blank"
+                rel="noreferrer"
+                onMouseOver={handleHover}
+              >
+                Supermind
+              </a>
+            </b>
+          </h1>
+        </Col>
+        <Col lg={4} />
+      </Row>
+      <Row>
+        <Col xxl={5} xl={5} lg={3} xs={2} md={3} sm={3} />
+        <Col
+          xxl={12}
+          xl={12}
+          lg={18}
+          xs={20}
+          md={18}
+          sm={18}
+          style={{ textAlign: "left" }}
+        >
+          <h1
+            data-aos="fade-up"
+            data-aos-delay="0"
+            data-aos-once
+            className="role-heading"
+            style={{
+              fontSize: "1.2rem",
+              textDecorationColor: "rgb(168, 164, 164)",
+            }}
+          >
+            <b>Data Science Engineering Intern</b>
+          </h1>
+          <ul
+            data-aos="fade-up"
+            data-aos-delay="0"
+            data-aos-once
+            style={{ color: "rgb(168, 164, 164)" }}
+          >
+            <li className="list">
+              Worked on adding data science solutions to the Supermind platform
+              using semantic search algorithms to boost searching operation
+              performance by 70%.
+            </li>
+
+            <li className="list">
+              Worked on creating an interactive social graph of users boosting
+              influence engagement by 120%.
             </li>
           </ul>
         </Col>

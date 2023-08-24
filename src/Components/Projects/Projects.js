@@ -2,6 +2,7 @@ import { Row, Col, Card, Button, Modal } from "antd";
 import "./Projects.css";
 import * as tf from "@tensorflow/tfjs";
 import { useEffect, useState } from "react";
+
 export const Projects = () => {
   const handleHover = (e) => {
     e.target.style.cursor = "none";
@@ -149,9 +150,9 @@ export const Projects = () => {
                 backgroundColor: "#141414",
               }}
             >
-              This was built for the Tractor Supply's “Life out Here” AI/ML
-              Hackathon hosted on HackerEarth, in only 3 days where my
-              submission was among the top 6 solutions across 8 different themes
+              The submission as part of the Tractor Supply's “Life out Here”
+              AI/ML Hackathon hosted on HackerEarth, it was among the top 6
+              solutions across 8 different themes
             </p>
             <p
               className="description-1"
@@ -232,7 +233,7 @@ export const Projects = () => {
             </Button>
             <Modal
               title="Game example"
-              visible={isModalVisibleRLGames}
+              open={isModalVisibleRLGames}
               onCancel={handleCancel}
               width={1000}
               footer={[
@@ -284,10 +285,9 @@ export const Projects = () => {
                 backgroundColor: "#141414",
               }}
             >
-              This is my TensorFlow implementations of Wasserstein GANs with
-              Gradient Penalty (WGAN-GP) proposed in Improved Training of
-              Wasserstein GANs. This project generates images from a latent
-              space of 128 dimensions
+              TensorFlow implementation of Wasserstein GANs with Gradient
+              Penalty (WGAN-GP) proposed in Improved Training of Wasserstein
+              GANs.
             </p>
             <p
               className="description-3"
@@ -302,7 +302,7 @@ export const Projects = () => {
               characters. Used a publicly available dataset on Kaggle.
             </p>
             <br />
-            <br />
+
             <p
               className="description-3"
               style={{
@@ -314,6 +314,8 @@ export const Projects = () => {
             >
               Tensorflow NumPy PIL Matplotlib
             </p>
+            <br />
+            <br />
             <Button
               style={{ BackgroundColor: "white" }}
               type="primary"
@@ -324,7 +326,7 @@ export const Projects = () => {
             </Button>
             <Modal
               title="Create your own Anime Face"
-              visible={isModalVisibleGan}
+              open={isModalVisibleGan}
               onCancel={handleCancel}
               footer={[
                 <Button key="back" onClick={handleCancel}>
@@ -353,7 +355,7 @@ export const Projects = () => {
         <Col xxl={3} xl={3} lg={3} xs={2} md={3} sm={3} />
       </Row>
       <Row style={{ marginTop: "13px" }}>
-        <Col xxl={6} xl={6} lg={4} xs={2} md={3} sm={3} />
+        <Col xxl={3} xl={3} lg={4} xs={2} md={3} sm={3} />
         <Col xxl={6} xl={6} lg={16} xs={20} md={18} sm={18}>
           <Card
             data-aos="fade-up"
@@ -385,8 +387,8 @@ export const Projects = () => {
                 backgroundColor: "#141414",
               }}
             >
-              This is my TensorFlow implementation of Image Segmentation Project
-              using U-net model
+              TensorFlow implementation of Image Segmentation Project using
+              U-net model
             </p>
             <p
               className="description-4"
@@ -458,9 +460,9 @@ export const Projects = () => {
                 backgroundColor: "#141414",
               }}
             >
-              This is my TensorFlow implementations of Deep Q learning model
-              proposed in "Playing Atari with Deep Reinforcement Learning". The
-              task is to land the space-ship between the flags smoothly.
+              TensorFlow implementation of Deep Q learning model proposed in
+              "Playing Atari with Deep Reinforcement Learning". The task is to
+              land the space-ship between the flags smoothly.
             </p>
             <p
               className="description-5"
@@ -470,22 +472,10 @@ export const Projects = () => {
                 backgroundColor: "#141414",
               }}
             >
-              In order to solve the episode you have to get a reward of +200 for
-              100 consecutive episodes. I solved both the version under 400
-              episodes.
+              Solved both the versions under 400 episodes.
             </p>
-            <p
-              className="description-5"
-              style={{
-                textAlign: "left",
-                color: "rgb(168, 164, 164)",
-                backgroundColor: "#141414",
-              }}
-            >
-              This environment was in my capstone project as part of my
-              University of Alberta Specialization which did not use Tensorflow
-              to solve the Environment.
-            </p>
+            <br />
+            <br />
             <p
               className="description-4"
               style={{
@@ -496,12 +486,17 @@ export const Projects = () => {
             >
               Tensorflow NumPy Matplotlib
             </p>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <Button type="primary" shape="round" onClick={showModalLander}>
               See it in action!
             </Button>
             <Modal
               title="Video example"
-              visible={isModalVisibleLander}
+              open={isModalVisibleLander}
               onCancel={handleCancel}
               width={800}
               footer={[
@@ -520,8 +515,92 @@ export const Projects = () => {
           </Card>
         </Col>
         <Col xxl={0} xl={0} lg={3} xs={2} md={3} sm={3} />
-        {/* <Col xxl={0} xl={0} lg={4} xs={2} md={3} sm={3} /> */}
-        <Col xxl={6} xl={6} lg={3} xs={2} md={3} sm={3} />
+        <Col xxl={0} xl={0} lg={4} xs={2} md={3} sm={3} />
+        <Col xxl={6} xl={6} lg={16} xs={20} md={18} sm={18}>
+          <Card
+            data-aos="fade-up"
+            data-aos-delay="0"
+            data-aos-once
+            className="card-4"
+            style={{ margin: "3%", height: "95%" }}
+            bodyStyle={{ backgroundColor: "#141414" }}
+            bordered={false}
+            hoverable={true}
+            title="NFT Minting Platform"
+            extra={
+              <>
+                <a
+                  onMouseOver={handleHover}
+                  style={{ color: "white" }}
+                  href="https://github.com/Cynamide/minting-svelte"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Github
+                </a>
+              </>
+            }
+          >
+            <p
+              className="description-4"
+              style={{
+                textAlign: "left",
+                color: "rgb(168, 164, 164)",
+                backgroundColor: "#141414",
+              }}
+            >
+              Platform "Akuna" built using Candy Machine V2 to enable minting of
+              custom NFTs through the Solana Blockchain.
+            </p>
+            <p
+              className="description-4"
+              style={{
+                textAlign: "left",
+                color: "rgb(168, 164, 164)",
+                backgroundColor: "#141414",
+              }}
+            >
+              The platform supports minting of NFTs with images of anime
+              characters that were generated entirely using an AI model to
+              maintain uniqueness of the NFTs.
+            </p>
+            <p
+              className="description-4"
+              style={{
+                textAlign: "left",
+                color: "rgb(168, 164, 164)",
+                backgroundColor: "#141414",
+              }}
+            >
+              The platform has a dedicated discord server and a twitter handle
+              to promote the NFTs.
+            </p>
+            <p
+              className="description-4"
+              style={{
+                textAlign: "left",
+                color: "rgb(168, 164, 164)",
+                backgroundColor: "#141414",
+                marginTop: "27px",
+              }}
+            >
+              Svelte, Solana, TypeScript
+            </p>
+            <br />
+            <Button type="primary" shape="round">
+              <a
+                onMouseOver={handleHover}
+                style={{ color: "white" }}
+                href="https://minting-svelte.netlify.app/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Visit the website!
+              </a>
+            </Button>
+          </Card>
+        </Col>
+        <Col xxl={3} xl={3} lg={3} xs={2} md={3} sm={3} />
       </Row>
     </div>
   );

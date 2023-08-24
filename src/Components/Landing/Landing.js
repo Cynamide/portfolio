@@ -7,9 +7,9 @@ export const Landing = () => {
       <Row style={{ marginTop: "17vh" }}>
         <Col xxl={5} xl={5} lg={4} xs={2} md={3} sm={3} />
         <Col
-          xxl={14}
-          xl={14}
-          lg={17}
+          xxl={16}
+          xl={16}
+          lg={19}
           xs={20}
           md={18}
           sm={18}
@@ -39,7 +39,7 @@ export const Landing = () => {
             data-aos-once
             className="short-desc"
           >
-            <b>I integrate the Web with AI</b>
+            <b>I build Web Application and AI</b>
           </p>
           <p
             data-aos="fade"
