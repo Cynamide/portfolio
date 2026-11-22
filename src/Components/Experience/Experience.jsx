@@ -16,9 +16,9 @@ export const Experience = () => (
         <h1 className="experience-heading" data-aos="fade-up" data-aos-once style={{ borderBottom: "2px solid rgb(168, 164, 164)" }}><b>Experience</b></h1>
       </Col>
     </Row>
-    {roles.map((role) => (
+    {roles.map((role, index) => (
       <div key={role.company}>
-        <Row style={{ marginTop: "80px" }}>
+        <Row style={{ marginTop: index === 0 ? "28px" : "64px" }}>
           <Col xxl={5} xl={5} lg={3} xs={2} md={3} sm={3} />
           <Col xxl={14} xl={14} lg={18} xs={20} md={18} sm={18} style={{ textAlign: "left" }}>
             <h1 className="heading-2" data-aos="fade-up" data-aos-once style={{ textDecoration: "underline", textDecorationColor: "rgb(168, 164, 164)" }}><b>{role.company}</b></h1>

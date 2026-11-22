@@ -58,14 +58,18 @@ export const AboutMe = () => {
             friends
           </p>
         </Col>
-        <Col xxl={1} xl={1} lg={7} xs={2} />
+        <Col xxl={1} xl={1} lg={0} xs={0} />
         <Col
           data-aos="fade"
           data-aos-delay="500"
           data-aos-once
-          xxl={9}
-          xl={9}
-          lg={9}
+          xxl={{ span: 9, offset: 0 }}
+          xl={{ span: 9, offset: 0 }}
+          lg={{ span: 18, offset: 3 }}
+          md={{ span: 18, offset: 3 }}
+          sm={{ span: 18, offset: 3 }}
+          xs={{ span: 20, offset: 2 }}
+          className="about-focus-column"
           style={{ display: "flex", alignItems: "center" }}
         >
           <div className="about-focus">
