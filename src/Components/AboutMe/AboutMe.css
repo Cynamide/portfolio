@@ -109,3 +109,6 @@
 .about-focus p:last-child { border: 0; padding-bottom: 0; margin-bottom: 0; }
 .about-focus .about-focus-label { color: #9eb9df; font-size: 12px; letter-spacing: .12em; font-weight: 600; }
 @media (max-width: 992px) { .about-focus { margin: 30px 0 0; } }
+
+.about-focus { width: 100%; }
+@media (max-width: 1199px) { .about-focus-column { justify-content: center; } .about-focus { margin: 30px auto 0; } }

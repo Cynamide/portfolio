@@ -22,3 +22,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Generated from the original project demonstration videos
+public/videos/customer-detection.mp4
+public/videos/image-segmentation.mp4

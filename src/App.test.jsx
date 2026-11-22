@@ -8,5 +8,5 @@ test('preserves the original project demos alongside recent experience', () => {
   expect(screen.getByText('LocalEval')).toBeInTheDocument();
   expect(screen.getByText('WGAN-GP')).toBeInTheDocument();
   expect(screen.getByRole('button', { name: /try it out/i })).toBeInTheDocument();
-  expect(screen.getAllByRole('button', { name: /see it in action/i })).toHaveLength(2);
+  expect(screen.getAllByRole('button', { name: /see it in action/i })).toHaveLength(4);
 });
