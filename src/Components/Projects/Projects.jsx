@@ -17,27 +17,22 @@ export const Projects = () => {
   const [image, setImage] = useState(null);
   const [model, setModel] = useState(null);
 
+  const [generationError, setGenerationError] = useState("");
+
   async function genImage() {
     setIsLoading(true);
-    if (model) {
-      const noise = tf.randomNormal([1, 1, 1, 128]);
-      let image = model.predict(noise);
-      image = image.reshape([64, 64, 3]);
-      setImage(image);
-    } else {
-      const mod = await tf.loadLayersModel("/tfjs/gan/model.json");
-      setModel(mod);
+    setGenerationError("");
+    try {
+      const loadedModel = model || await tf.loadLayersModel("/tfjs/gan/model.json");
+      if (!model) setModel(loadedModel);
+      const pixels = tf.tidy(() => loadedModel.predict(tf.randomNormal([1, 1, 1, 128])).reshape([64, 64, 3]).arraySync());
+      setImage(pixels);
+    } catch (error) {
+      setGenerationError("The model could not be loaded. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   }
-
-  useEffect(() => {
-    if (model) {
-      const noise = tf.randomNormal([1, 1, 1, 128]);
-      let image = model.predict(noise);
-      image = image.reshape([64, 64, 3]);
-      setImage(image);
-    }
-  }, [model]);
 
   const showModalGan = () => {
     setIsModalVisibleGan(true);
@@ -59,23 +54,18 @@ export const Projects = () => {
   };
 
   useEffect(() => {
-    if (image) {
-      image.array().then((imageData) => {
-        const canvas = document.querySelector(".canvas");
-        const ctx = canvas.getContext("2d");
-        for (var i = 0; i < imageData.length; i++) {
-          for (var j = 0; j < imageData[i].length; j++) {
-            var red = (imageData[j][i][0] + 1) * 0.5 * 255;
-            var green = (imageData[j][i][1] + 1) * 0.5 * 255;
-            var blue = (imageData[j][i][2] + 1) * 0.5 * 255;
-            ctx.fillStyle = "rgb(" + red + "," + green + "," + blue + ")";
-            ctx.fillRect(i, j, 1, 1);
-          }
-        }
-      });
-      setIsLoading(false);
+    if (!image || !isModalVisibleGan) return;
+    const canvas = document.querySelector(".canvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    for (let y = 0; y < 64; y++) {
+      for (let x = 0; x < 64; x++) {
+        const [red, green, blue] = image[y][x].map((channel) => Math.max(0, Math.min(255, Math.round((channel + 1) * 127.5))));
+        ctx.fillStyle = `rgb(${red},${green},${blue})`;
+        ctx.fillRect(x, y, 1, 1);
+      }
     }
-  }, [image]);
+  }, [image, isModalVisibleGan]);
 
   return (
     <div id="projects">
@@ -103,6 +93,23 @@ export const Projects = () => {
             <b>Projects</b>
           </h1>
         </Col>
+      </Row>
+      <Row style={{ marginTop: "13px" }}>
+        <Col xxl={3} xl={3} lg={3} xs={2} md={3} sm={3} />
+        {[
+          { title: "LocalEval", url: "https://github.com/Cynamide/go-exec-sandbox", description: "A benchmark workbench for comparing models on coding tasks. It runs generated code in isolated Docker containers and records results and evidence for each run.", stack: "Go · Next.js · Docker · PostgreSQL" },
+          { title: "RAGFlow", url: "https://github.com/Cynamide/llm-context-chatbot", demo: "https://llm-context-chatbot.vercel.app", description: "A document chatbot that lets you upload files and ask questions grounded in their content. It retrieves relevant passages and streams answers to the interface.", stack: "Next.js · Cloudflare Workers · LangChain" },
+          { title: "LLM on Call", url: "https://github.com/Cynamide/llm-on-call", description: "A voice agent with a FastAPI backend, a Twilio call flow, and real-time audio through Ultravox.", stack: "Python · FastAPI · Twilio · Ultravox" },
+        ].map((project) => (
+          <Col key={project.title} xxl={6} xl={6} lg={16} xs={20} md={18} sm={18}>
+            <Card data-aos="fade-up" data-aos-once className="card-1" style={{ margin: "3%", height: "95%" }} bodyStyle={{ backgroundColor: "#141414" }} bordered={false} hoverable title={project.title} extra={<a style={{ color: "white" }} href={project.url} target="_blank" rel="noreferrer">GitHub</a>}>
+              <p className="description-1" style={{ textAlign: "left", color: "rgb(168, 164, 164)" }}>{project.description}</p>
+              <p className="description-1" style={{ textAlign: "left", color: "rgb(168, 164, 164)" }}>{project.stack}</p>
+              {project.demo && <Button type="primary" shape="round" href={project.demo} target="_blank" rel="noreferrer">Try the live demo</Button>}
+            </Card>
+          </Col>
+        ))}
+        <Col xxl={3} xl={3} lg={3} xs={2} md={3} sm={3} />
       </Row>
       <Row style={{ marginTop: "13px" }}>
         <Col xxl={3} xl={3} lg={4} xs={2} md={3} sm={3} />
@@ -233,7 +240,7 @@ export const Projects = () => {
             </Button>
             <Modal
               title="Game example"
-              open={isModalVisibleRLGames}
+              visible={isModalVisibleRLGames}
               onCancel={handleCancel}
               width={1000}
               footer={[
@@ -271,7 +278,6 @@ export const Projects = () => {
                 rel="noreferrer"
                 style={{ color: "white" }}
                 href="https://github.com/Cynamide/GAN/"
-                onClick={genImage}
               >
                 GitHub
               </a>
@@ -326,7 +332,7 @@ export const Projects = () => {
             </Button>
             <Modal
               title="Create your own Anime Face"
-              open={isModalVisibleGan}
+              visible={isModalVisibleGan}
               onCancel={handleCancel}
               footer={[
                 <Button key="back" onClick={handleCancel}>
@@ -346,6 +352,7 @@ export const Projects = () => {
                 Click on create! (It would take some time the first time you
                 click)
               </p>
+              {generationError && <p role="alert">{generationError}</p>}
               {image && (
                 <canvas className="canvas" height="64px" width="64px" />
               )}
@@ -472,7 +479,7 @@ export const Projects = () => {
                 backgroundColor: "#141414",
               }}
             >
-              Solved both the versions under 400 episodes.
+              Trained with experience replay and epsilon-greedy exploration in the LunarLander simulation.
             </p>
             <br />
             <br />
@@ -496,7 +503,7 @@ export const Projects = () => {
             </Button>
             <Modal
               title="Video example"
-              open={isModalVisibleLander}
+              visible={isModalVisibleLander}
               onCancel={handleCancel}
               width={800}
               footer={[

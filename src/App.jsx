@@ -1,42 +1,37 @@
-import React from "react";
-import "./portfolio.css";
+import React, { useEffect } from "react";
 
-const experience = [
-  { company: "QuiverAI", role: "Product Engineer", date: "Apr 2026 – Jul 2026", note: "Company restructuring", description: "I built the Explore feed and improved the reliability of AI generation workflows. I also worked on the SVG renderer, fixing streaming interruptions and style collisions and making the final display nearly instant where it had taken 10–15 seconds.", tags: "TypeScript · Vue · Node.js · Redis" },
-  { company: "NC State University", role: "Full Stack Developer", date: "May 2025 – Apr 2026", description: "I built a web platform that brings legacy risk analysis tools together for researchers. I created interactive event tree visualizations and added automated tests with Playwright and Jest.", tags: "React · Next.js · React Flow · Playwright" },
-  { company: "Ciena", role: "Software Engineering Intern, Co-op", date: "May 2024 – Dec 2024", description: "I built a Python testing framework to check network throughput and packet loss at up to 200 Gbps. I automated deployments and nightly stress tests to catch regressions earlier.", tags: "Python · Jenkins · Kubernetes · Grafana" },
-  { company: "Bitglaze Technologies", role: "Founding Engineer", date: "Apr 2021 – Jun 2023", description: "I built a no-code MLOps platform where users could create model training and evaluation pipelines. I also built a Python library that let customers run the models they created.", tags: "React · TypeScript · NestJS · Python" },
-];
+import AOS from "aos";
 
-const projects = [
-  { name: "LocalEval", category: "LLM EVALUATION", description: "A benchmark workbench for comparing models on coding tasks. It runs generated code in isolated Docker containers and records results and evidence for each run.", stack: "Go · Next.js · Docker · PostgreSQL", link: "https://github.com/Cynamide/go-exec-sandbox" },
-  { name: "RAGFlow", category: "AI APPLICATION", description: "A document chatbot that lets people upload files and ask questions grounded in their content. It retrieves relevant passages and streams answers to the interface.", stack: "Next.js · Cloudflare Workers · LangChain", link: "https://github.com/Cynamide/llm-context-chatbot", demo: "https://llm-context-chatbot.vercel.app" },
-  { name: "LLM on Call", category: "VOICE AGENT", description: "A voice agent with a FastAPI backend, a Twilio call flow, and real-time audio through Ultravox.", stack: "Python · FastAPI · Twilio · Ultravox", link: "https://github.com/Cynamide/llm-on-call" },
-  { name: "Lunar Lander", category: "REINFORCEMENT LEARNING", description: "A deep Q-learning agent that learns to land in the LunarLander simulation using experience replay and epsilon-greedy exploration.", stack: "Python · TensorFlow · OpenAI Gym", link: "https://github.com/Cynamide/Lunar-lander" },
-];
+import { Cursor } from "./Components/Cursor/Cursor";
+import { Navbar } from "./Components/Navbar/Navbar";
+import { Landing } from "./Components/Landing/Landing";
+import { AboutMe } from "./Components/AboutMe/AboutMe";
+import { TechIKnow } from "./Components/TechIKnow/TechIKnow";
+import { Experience } from "./Components/Experience/Experience";
+import { Projects } from "./Components/Projects/Projects";
+import { Contact } from "./Components/Contact/Contact";
+
+import "aos/dist/aos.css";
+import "./antd.css";
+import "./App.css";
 
 function App() {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
-    <div className="site" id="top">
-      <a className="skip-link" href="#main">Skip to content</a>
-      <header className="header wrap">
-        <a className="brand" href="#top" aria-label="Arjit Agarwal, home">aa<span>.</span></a>
-        <nav aria-label="Main navigation"><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
-        <a className="nav-contact" href="mailto:arjitagarwal123@gmail.com">Get in touch</a>
-      </header>
-      <main id="main">
-        <section className="hero wrap" aria-labelledby="hero-title">
-          <div className="hero-content"><p className="eyebrow"><span className="eyebrow-line" /> SOFTWARE ENGINEER &amp; BUILDER</p><h1 id="hero-title">Hi, I’m Arjit.<br /><span>I build things<br className="desktop-break" /> that work.</span></h1><p className="hero-copy">I build software across the stack, from AI products and developer tools to systems that help researchers do their work.</p><div className="hero-actions"><a className="button primary" href="#projects">Explore my work</a><a className="text-link" href="https://github.com/Cynamide" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a></div></div>
-          <div className="hero-art" aria-hidden="true"><div className="art-orbit orbit-one"/><div className="art-orbit orbit-two"/><div className="art-core"><span>IDEAS</span><strong>to</strong><span>INTERFACES</span></div><div className="art-label label-top">CODE / CREATE</div><div className="art-label label-bottom">LEARN / REPEAT</div><div className="art-spark spark-one">✳</div><div className="art-spark spark-two">✳</div></div>
-          <div className="hero-footer"><span>BASED IN INDIA</span><span>SCROLL TO EXPLORE ↓</span></div>
-        </section>
-        <section className="about section wrap" id="about"><div className="section-label">A LITTLE ABOUT ME</div><div><h2>I like understanding how things work. <span>Then building something with them.</span></h2><div className="about-grid"><p>I’m a software engineer with a master’s in computer science from NC State. I’ve worked on AI products, research software, and infrastructure for testing networks.</p><p>Outside of work, I enjoy exploring machine learning through projects in computer vision, reinforcement learning, and LLM evaluation.</p></div><div className="skills"><span>Python</span><span>TypeScript</span><span>React</span><span>Node.js</span><span>Go</span><span>PostgreSQL</span><span>Docker</span><span>PyTorch</span></div></div></section>
-        <section className="section wrap" id="experience"><div className="section-heading"><div><p className="section-label">WHERE I’VE WORKED</p><h2>Experience<span className="accent">.</span></h2></div><p>Some of the problems I’ve worked on and the teams I’ve worked with.</p></div><div className="experience-list">{experience.map(item => <article className="experience-item" key={item.company}><div className="exp-meta"><p>{item.date}</p><span>{item.company}</span></div><div><h3>{item.role}</h3>{item.note && <p className="exp-note">{item.note}</p>}<p className="body-copy">{item.description}</p><p className="tags">{item.tags}</p></div></article>)}</div></section>
-        <section className="projects-section" id="projects"><div className="wrap section"><div className="section-heading"><div><p className="section-label">A FEW THINGS I’VE BUILT</p><h2>Selected projects<span className="accent">.</span></h2></div><a className="text-link" href="https://github.com/Cynamide" target="_blank" rel="noreferrer">More on GitHub <span aria-hidden="true">↗</span></a></div><div className="project-grid">{projects.map((project, index) => <article className="project-card" key={project.name}><div className={`project-visual visual-${index}`} aria-hidden="true"><div className="visual-grid"/><span>{index === 0 ? "{ }" : index === 1 ? "✳" : index === 2 ? "◉" : "↗"}</span><small>{project.category}</small></div><div className="project-content"><p className="project-category">{project.category}</p><h3>{project.name}</h3><p className="body-copy">{project.description}</p><p className="tags">{project.stack}</p><div className="project-links"><a href={project.link} target="_blank" rel="noreferrer">View code <span aria-hidden="true">↗</span></a>{project.demo && <a href={project.demo} target="_blank" rel="noreferrer">Live demo <span aria-hidden="true">↗</span></a>}</div></div></article>)}</div></div></section>
-        <section className="section wrap research"><div className="section-label">BEYOND THE CODE</div><div><h2>More things I’m proud of<span className="accent">.</span></h2><div className="research-list"><a href="https://github.com/Cynamide/customer_detection" target="_blank" rel="noreferrer"><span>Tractor Supply AI/ML Hackathon</span><span>Customer detection system ↗</span></a><a href="https://github.com/Cynamide/RL_Games" target="_blank" rel="noreferrer"><span>IIT Madras Shaastra RL Games</span><span>Second place ↗</span></a><a href="https://ceur-ws.org/Vol-3395/T6-5.pdf" target="_blank" rel="noreferrer"><span>Hindi text summarization research</span><span>Published paper ↗</span></a></div></div></section>
-        <section className="contact-section" id="contact"><div className="wrap contact-inner"><p className="section-label">SAY HELLO</p><h2>Have something in mind?<br /><span>Let’s talk.</span></h2><p>I’d love to hear about what you’re building.</p><a className="button primary" href="mailto:arjitagarwal123@gmail.com">arjitagarwal123@gmail.com</a></div></section>
-      </main><footer className="footer wrap"><span>© {new Date().getFullYear()} Arjit Agarwal</span><div><a href="https://github.com/Cynamide" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/arjitagarwal123/" target="_blank" rel="noreferrer">LinkedIn</a><a href="#top">Back to top ↑</a></div></footer>
+    <div className="App">
+      <Cursor />
+      <Navbar />
+      <Landing />
+      <AboutMe />
+      <TechIKnow />
+      <Experience />
+      <Projects />
+      <Contact />
     </div>
   );
 }
+
 export default App;

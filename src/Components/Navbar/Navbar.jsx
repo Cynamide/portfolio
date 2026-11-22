@@ -10,14 +10,6 @@ export const Navbar = () => {
   const proRef = useRef(null);
   const conRef = useRef(null);
   const resRef = useRef(null);
-  useEffect(() => {
-    homeRef.current.props.style["borderBottom"] = "none";
-    techRef.current.props.style["borderBottom"] = "none";
-    expRef.current.props.style["borderBottom"] = "none";
-    proRef.current.props.style["borderBottom"] = "none";
-    conRef.current.props.style["borderBottom"] = "none";
-    resRef.current.props.style["borderBottom"] = "none";
-  }, []);
   const handleHover = (e) => {
     e.target.style.cursor = "none";
     e.target.style.color = "white";
@@ -46,7 +38,7 @@ export const Navbar = () => {
                 <path
                   d="M760.832 545.36H673.28L657.152 590H629.504L702.08 390.416H732.32L804.608 590H776.96L760.832 545.36ZM753.344 524.048L717.056 422.672L680.768 524.048H753.344Z"
                   stroke="white"
-                  stroke-width="1"
+                  strokeWidth="1"
                 />
               </svg>
             </a>

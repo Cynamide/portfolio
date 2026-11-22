@@ -29,8 +29,7 @@ export const AboutMe = () => {
             data-aos-once
             className="about-first"
           >
-            I am a Masters Student from North Carolina State University,
-            currently pursuing my Masters in Computer Science.
+            I completed my Master of Computer Science at North Carolina State University. I have worked on AI products, research software, and network testing infrastructure.
           </p>
           <p
             data-aos="fade-up"
@@ -38,10 +37,7 @@ export const AboutMe = () => {
             data-aos-once
             className="about-second"
           >
-            I really enjoy building AI applications and integrating them with
-            the Web. I'm always eager to learn new concepts and apply them in my
-            projects. Currently, I am actively looking for new internship
-            opportunities
+            I enjoy building AI applications and bringing them to the web. I like learning new concepts and applying them to projects.
           </p>
           <p
             data-aos="fade-up"
@@ -49,10 +45,7 @@ export const AboutMe = () => {
             data-aos-once
             className="about-third"
           >
-            I am a dedicated team player, and I get along well with any team
-            environment. I do well under pressure which I feel makes me a good
-            addition to any team. I also have strong command over Web
-            Development and the various Technologies associated with it.
+            My projects include work in computer vision, reinforcement learning, and evaluating language models.
           </p>
           <p
             data-aos="fade-up"
@@ -78,7 +71,7 @@ export const AboutMe = () => {
           <section className="main">
             <div className="container">
               <div className="img-container">
-                <img className="image" src="profile.webp" alt="MyFace" />
+                <img className="image" src="profile.webp" alt="Arjit Agarwal" />
               </div>
             </div>
           </section>

@@ -64,10 +64,8 @@ export const TechIKnow = () => {
               <b>Frameworks/Libraries</b>
             </h2>
             <p style={{ color: "rgb(168, 164, 164)" }} className="frameworks">
-              ReactJS • Django-Rest-Framework • Tensorflow • Rapids BlazingSQL{" "}
-              <br /> Git/GitHub • Scikit-Learn • Jupyter Notebook • Unity3D{" "}
-              <br /> Anaconda • Pandas • Ant Design OpenCV • Celery • RabbitMQ
-              WebSockets
+              React • Next.js • Vue • Node.js • NestJS • FastAPI
+              <br /> TensorFlow • PyTorch • LangChain • Playwright • Jest
             </p>
           </div>
           <div
@@ -86,7 +84,7 @@ export const TechIKnow = () => {
               <b>DevOps</b>
             </h2>
             <p style={{ color: "rgb(168, 164, 164)" }} className="devops">
-              Docker • AWS • Git • Netlify • Heroku
+              Docker • Kubernetes • Helm • AWS • Jenkins • GitHub Actions
             </p>
           </div>
           <div
@@ -105,7 +103,7 @@ export const TechIKnow = () => {
               <b>Databases</b>
             </h2>
             <p style={{ color: "rgb(168, 164, 164)" }} className="database">
-              PostgreSQL • MySQL • MongoDB
+              PostgreSQL • Redis • MongoDB • SQLite
             </p>
           </div>
           <div
@@ -124,7 +122,7 @@ export const TechIKnow = () => {
               <b>Languages</b>
             </h2>
             <p style={{ color: "rgb(168, 164, 164)" }} className="languages">
-              Python • JavaScript • TypeScript • C/C++ • Java • C#
+              Python • TypeScript • JavaScript • Go • SQL • Java
             </p>
           </div>
         </Col>

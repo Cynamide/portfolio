@@ -39,7 +39,7 @@ export const Landing = () => {
             data-aos-once
             className="short-desc"
           >
-            <b>I build Web Application and AI</b>
+            <b>I build Web Applications and AI</b>
           </p>
           <p
             data-aos="fade"
@@ -48,15 +48,11 @@ export const Landing = () => {
             className="long-desc"
             style={{ color: "rgb(168, 164, 164)" }}
           >
-            I am a passionate Software Developer and Machine Learning
-            enthusiast,
+            I build software across the stack, from AI products and developer tools
             <br />
-            specialising in Image Processing. I love building stuff and solving
-            problems,
+            to platforms that help researchers do their work.
             <br />
-            and I'm currently pursing Masters in Computer Science at
-            <br />
-            North Carolina State University.
+            I completed my Master of Computer Science at North Carolina State University.
           </p>
         </Col>
         <Col xxl={5} xl={5} lg={3} xs={2} md={3} sm={3} />
