@@ -9,3 +9,5 @@
 .blog-post time { color: #aaa; white-space: nowrap; }
 .blog-post-content { margin-top: 20px; max-width: 760px; }
 @media (max-width: 760px) { .blog-section { margin-top: 100px; padding: 0 24px; } .blog-post summary { flex-direction: column; gap: 8px; } }
+.blog-empty { background: linear-gradient(120deg, #1a2331, #15191f); border-color: #344050; border-radius: 6px; color: #c4cedd; }
+.blog-intro { color: #b3bfce; }

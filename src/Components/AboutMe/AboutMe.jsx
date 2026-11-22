@@ -68,13 +68,12 @@ export const AboutMe = () => {
           lg={9}
           style={{ display: "flex", alignItems: "center" }}
         >
-          <section className="main">
-            <div className="container">
-              <div className="img-container">
-                <img className="image" src="profile.webp" alt="Arjit Agarwal" />
-              </div>
-            </div>
-          </section>
+          <div className="about-focus">
+            <p className="about-focus-label">A FEW THINGS I ENJOY</p>
+            <p>Building useful AI products</p>
+            <p>Exploring computer vision and reinforcement learning</p>
+            <p>Turning ideas into tools people can use</p>
+          </div>
         </Col>
         <Col lg={3} xs={2} md={3} sm={3} />
       </Row>
