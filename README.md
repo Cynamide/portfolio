@@ -1,33 +1,23 @@
-# Welcome to Portfolio
+# Arjit Agarwal's portfolio
 
-> Portfolio Website made in React+AntD
+A React portfolio built with Vite.
 
-## Install
+## Run locally
 
-```sh
-yarn install
-```
-
-## Usage
+Use Node.js 22 (also specified in `.nvmrc`):
 
 ```sh
-yarn start
+nvm use
+npm install
+npm start
 ```
 
-## Features
+Run `npm test` for the component test or `npm run build` for a production build.
 
-- Project was made in React and Ant Design
-- Animations are minimal, and built into the app itself
-- The site is completely responsive, and mobile friendly
+## Netlify
 
-## Author
+`netlify.toml` selects Node 22 and publishes the `dist` directory. No legacy OpenSSL provider is required.
 
-👤 **Arjit Agarwal**
+## Blog posts
 
-- Github: [@Cynamide](https://github.com/Cynamide)
-- LinkedIn: [@arjitagarwal123](https://linkedin.com/in/arjitagarwal123)
-
-## Show your support
-
-Give a ⭐️ if this project helped you! <br/>
-Make sure to credit me in the Footer, if you do end up using it!
+Add entries to `src/blog/posts.js`. Each entry has a unique `slug`, `title`, an ISO date (`YYYY-MM-DD`), a short `summary`, and a `content` array of paragraphs. Posts appear newest first and can be opened in the Blog section. Rebuild and deploy the site to publish changes.

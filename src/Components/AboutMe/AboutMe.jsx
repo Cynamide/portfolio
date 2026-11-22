@@ -3,7 +3,7 @@ import "./AboutMe.css";
 export const AboutMe = () => {
   return (
     <div id="aboutme">
-      <Row style={{ marginTop: "37vh" }}>
+      <Row style={{ marginTop: "clamp(100px, 13vh, 150px)" }}>
         <Col xxl={5} xl={5} lg={3} xs={2} md={3} sm={3} />
         <Col
           xxl={6}
@@ -29,8 +29,7 @@ export const AboutMe = () => {
             data-aos-once
             className="about-first"
           >
-            I am a Masters Student from North Carolina State University,
-            currently pursuing my Masters in Computer Science.
+            I completed my Master of Computer Science at North Carolina State University. I have worked on AI products, research software, and network testing infrastructure.
           </p>
           <p
             data-aos="fade-up"
@@ -38,10 +37,7 @@ export const AboutMe = () => {
             data-aos-once
             className="about-second"
           >
-            I really enjoy building AI applications and integrating them with
-            the Web. I'm always eager to learn new concepts and apply them in my
-            projects. Currently, I am actively looking for new internship
-            opportunities
+            I enjoy building AI applications and bringing them to the web. I like learning new concepts and applying them to projects.
           </p>
           <p
             data-aos="fade-up"
@@ -49,10 +45,7 @@ export const AboutMe = () => {
             data-aos-once
             className="about-third"
           >
-            I am a dedicated team player, and I get along well with any team
-            environment. I do well under pressure which I feel makes me a good
-            addition to any team. I also have strong command over Web
-            Development and the various Technologies associated with it.
+            My projects include work in computer vision, reinforcement learning, and evaluating language models.
           </p>
           <p
             data-aos="fade-up"
@@ -75,13 +68,12 @@ export const AboutMe = () => {
           lg={9}
           style={{ display: "flex", alignItems: "center" }}
         >
-          <section className="main">
-            <div className="container">
-              <div className="img-container">
-                <img className="image" src="profile.webp" alt="MyFace" />
-              </div>
-            </div>
-          </section>
+          <div className="about-focus">
+            <p className="about-focus-label">A FEW THINGS I ENJOY</p>
+            <p>Building useful AI products</p>
+            <p>Exploring computer vision and reinforcement learning</p>
+            <p>Turning ideas into tools people can use</p>
+          </div>
         </Col>
         <Col lg={3} xs={2} md={3} sm={3} />
       </Row>

@@ -5,13 +5,25 @@ import {
   InstagramOutlined,
   MailFilled,
 } from "@ant-design/icons";
-import Typed from "react-typed";
+import React, { useEffect, useRef } from "react";
+import Typed from "typed.js";
 import "./Contact.css";
-import "react-typed/dist/animatedCursor.css";
+
+const TypedMessage = () => {
+  const target = useRef(null);
+  useEffect(() => {
+    const typed = new Typed(target.current, {
+      strings: ["This could be the start of something great! ^666Let's get in touch. . ."],
+      typeSpeed: 40,
+    });
+    return () => typed.destroy();
+  }, []);
+  return <span ref={target} />;
+};
 export const Contact = () => {
   return (
     <div id="contact">
-      <Row style={{ marginTop: "37vh" }}>
+      <Row style={{ marginTop: "clamp(100px, 13vh, 150px)" }}>
         <Col xxl={6} xl={6} lg={3} xs={2} md={3} sm={3} />
         <Col
           xxl={12}
@@ -23,17 +35,7 @@ export const Contact = () => {
           style={{ textAlign: "left" }}
         >
           <h1 className="contact-header">
-            <Typed
-              style={{
-                hyphens: "auto",
-                overflowWrap: "break-word",
-                wordWrap: "break-word",
-              }}
-              strings={[
-                "This could be the start of something great! ^666Let's get in touch. . .",
-              ]}
-              typeSpeed={40}
-            />
+            <TypedMessage />
           </h1>
         </Col>
         <Col xxl={6} xl={6} lg={3} xs={2} md={3} sm={2} />
