@@ -12,3 +12,4 @@
   cursor: none;
   scroll-behavior: smooth;
   }
+@media (pointer: coarse) { * { cursor: auto; } }

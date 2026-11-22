@@ -17,3 +17,7 @@ Run `npm test` for the component test or `npm run build` for a production build.
 ## Netlify
 
 `netlify.toml` selects Node 22 and publishes the `dist` directory. No legacy OpenSSL provider is required.
+
+## Blog posts
+
+Add entries to `src/blog/posts.js`. Each entry has a unique `slug`, `title`, an ISO date (`YYYY-MM-DD`), a short `summary`, and a `content` array of paragraphs. Posts appear newest first and can be opened in the Blog section. Rebuild and deploy the site to publish changes.

@@ -3,7 +3,7 @@ import "./AboutMe.css";
 export const AboutMe = () => {
   return (
     <div id="aboutme">
-      <Row style={{ marginTop: "37vh" }}>
+      <Row style={{ marginTop: "clamp(100px, 13vh, 150px)" }}>
         <Col xxl={5} xl={5} lg={3} xs={2} md={3} sm={3} />
         <Col
           xxl={6}

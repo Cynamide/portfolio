@@ -3,7 +3,7 @@ import "./TechIKnow.css";
 export const TechIKnow = () => {
   return (
     <div id="techiknow">
-      <Row style={{ marginTop: "35vh" }}>
+      <Row style={{ marginTop: "clamp(100px, 13vh, 150px)" }}>
         <Col xxl={5} xl={5} lg={3} xs={2} md={3} sm={3} />
         <Col
           xxl={6}

@@ -23,7 +23,7 @@ const TypedMessage = () => {
 export const Contact = () => {
   return (
     <div id="contact">
-      <Row style={{ marginTop: "37vh" }}>
+      <Row style={{ marginTop: "clamp(100px, 13vh, 150px)" }}>
         <Col xxl={6} xl={6} lg={3} xs={2} md={3} sm={3} />
         <Col
           xxl={12}

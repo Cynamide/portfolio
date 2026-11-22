@@ -4,7 +4,7 @@ import "./Landing.css";
 export const Landing = () => {
   return (
     <div id="landing">
-      <Row style={{ marginTop: "17vh" }}>
+      <Row style={{ marginTop: "clamp(70px, 12vh, 130px)" }}>
         <Col xxl={5} xl={5} lg={4} xs={2} md={3} sm={3} />
         <Col
           xxl={16}

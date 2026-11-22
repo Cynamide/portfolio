@@ -9,6 +9,7 @@ import { AboutMe } from "./Components/AboutMe/AboutMe";
 import { TechIKnow } from "./Components/TechIKnow/TechIKnow";
 import { Experience } from "./Components/Experience/Experience";
 import { Projects } from "./Components/Projects/Projects";
+import { Blog } from "./Components/Blog/Blog";
 import { Contact } from "./Components/Contact/Contact";
 
 import "aos/dist/aos.css";
@@ -29,6 +30,7 @@ function App() {
       <TechIKnow />
       <Experience />
       <Projects />
+      <Blog />
       <Contact />
     </div>
   );
