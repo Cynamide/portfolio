@@ -11,3 +11,45 @@
 @media (max-width: 760px) { .blog-section { margin-top: 100px; padding: 0 24px; } .blog-post summary { flex-direction: column; gap: 8px; } }
 .blog-empty { background: linear-gradient(120deg, #1a2331, #15191f); border-color: #344050; border-radius: 6px; color: #c4cedd; }
 .blog-intro { color: #b3bfce; }
+.blog-series-card { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; max-width: 650px; padding: 28px; margin-top: 28px; background: linear-gradient(135deg, #1b2636, #151a23); border: 1px solid #34455d; border-radius: 6px; transition: border-color .2s, transform .2s; }
+.blog-series-card:hover, .blog-series-card:focus-visible { border-color: #8daedb; transform: translateY(-2px); }
+.blog-series-card:focus-visible, .ml-notes-page a:focus-visible, .ml-topic summary:focus-visible { outline: 2px solid #a8c2ec; outline-offset: 4px; }
+.blog-series-label, .ml-eyebrow { color: #a9c5ed; font-size: 12px; font-weight: 600; letter-spacing: .12em; }
+.blog-series-title { color: #f5f6f8; font-size: 24px; font-weight: 600; }
+.blog-series-description { color: #b7c1d0; font-size: 16px; line-height: 1.7; }
+.blog-series-link { color: #a9c5ed; margin-top: 8px; font-size: 14px; }
+.blog-series-link span { margin-left: 5px; }
+.ml-notes-page { min-height: 100vh; background: #0d1016; color: #f1f3f7; text-align: left; }
+.ml-notes-wrap { width: min(100% - 48px, 1040px); margin: 0 auto; }
+.ml-notes-header { min-height: 86px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #29313e; }
+.ml-home-link { font-size: 30px; font-weight: 600; line-height: 1; color: #f1f3f7; }
+.ml-home-link span, .ml-title-dot { color: #a8c2ec; }
+.ml-back-link, .ml-breadcrumb a, .ml-notes-footer a { color: #bacbe3; font-size: 14px; }
+.ml-notes-main { width: min(100%, 760px); margin: 0 auto; padding: 64px 0 120px; }
+.ml-breadcrumb { display: flex; gap: 12px; align-items: center; color: #99a5b5; font-size: 14px; margin-bottom: 52px; }
+.ml-eyebrow { margin-bottom: 15px; }
+.ml-notes-main h1 { color: #f4f5f8; font-size: clamp(40px, 6vw, 64px); line-height: 1.12; letter-spacing: -.035em; margin: 0 0 20px; }
+.ml-intro { max-width: 590px; color: #b8c2d0; font-size: 17px; line-height: 1.75; margin: 0; }
+.ml-divider { height: 1px; background: #303a49; margin: 60px 0 38px; }
+.ml-section-header { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; margin-bottom: 20px; }
+.ml-section-header h2 { color: #f0f2f6; font-size: 22px; margin: 0; }
+.ml-section-header p { color: #a9b6c7; margin: 0; font-size: 14px; }
+.ml-topic { overflow: hidden; border: 1px solid #354760; border-radius: 6px; background: linear-gradient(125deg, #1c2736, #161b24); }
+.ml-topic-summary { display: flex; align-items: center; gap: 20px; padding: 27px; list-style: none; }
+.ml-topic-summary::-webkit-details-marker { display: none; }
+.ml-topic-icon { width: 46px; height: 46px; flex: 0 0 46px; border: 1px solid #617c9f; border-radius: 5px; display: grid; grid-template-columns: repeat(2, 8px); grid-template-rows: repeat(2, 8px); place-content: center; gap: 4px; }
+.ml-topic-icon span { background: #a5c0e5; border-radius: 1px; }
+.ml-topic-copy { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; }
+.ml-topic-copy strong { color: #f4f5f8; font-size: 19px; }
+.ml-topic-copy > span { color: #b8c2d0; font-size: 15px; line-height: 1.6; }
+.ml-topic-toggle { width: 12px; height: 12px; border-right: 2px solid #a7bfdf; border-bottom: 2px solid #a7bfdf; transform: rotate(45deg); margin: 0 5px 5px 0; }
+.ml-topic[open] .ml-topic-toggle { transform: rotate(225deg); margin-top: 8px; }
+.ml-topic-content { border-top: 1px solid #344356; padding: 24px 28px; }
+.ml-empty { margin: 0; color: #b8c2d0; font-size: 15px; }
+.ml-note { border-bottom: 1px solid #344356; padding: 16px 0; }
+.ml-note:last-child { border: 0; }
+.ml-note summary { color: #eff3f8; }
+.ml-note summary span { display: block; color: #b8c2d0; font-size: 14px; margin-top: 6px; }
+.ml-note p { color: #c8d1de; font-size: 16px; line-height: 1.8; }
+.ml-notes-footer { display: flex; justify-content: space-between; border-top: 1px solid #29313e; padding: 25px 0; color: #a9b6c7; font-size: 14px; }
+@media (max-width: 600px) { .ml-notes-header { min-height: 70px; } .ml-notes-main { padding: 45px 0 80px; } .ml-breadcrumb { margin-bottom: 38px; } .ml-divider { margin: 42px 0 30px; } .ml-section-header { align-items: flex-start; flex-direction: column; gap: 6px; } .ml-topic-summary { padding: 20px; gap: 14px; } .ml-topic-icon { width: 40px; height: 40px; flex-basis: 40px; } .ml-topic-content { padding: 20px; } }

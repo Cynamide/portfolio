@@ -10,6 +10,7 @@ import { TechIKnow } from "./Components/TechIKnow/TechIKnow";
 import { Experience } from "./Components/Experience/Experience";
 import { Projects } from "./Components/Projects/Projects";
 import { Blog } from "./Components/Blog/Blog";
+import { MLSystems } from "./Components/Blog/MLSystems";
 import { Contact } from "./Components/Contact/Contact";
 
 import "aos/dist/aos.css";
@@ -21,6 +22,9 @@ function App() {
     AOS.init();
     AOS.refresh();
   }, []);
+  if (window.location.pathname.replace(/\/$/, "") === "/blog/ml-systems") {
+    return <div className="App"><Cursor /><MLSystems /></div>;
+  }
   return (
     <div className="App">
       <Cursor />
