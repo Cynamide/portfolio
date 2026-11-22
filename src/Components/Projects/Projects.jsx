@@ -62,16 +62,16 @@ export const Projects = () => {
         {image && <canvas className="canvas" height="64" width="64" aria-label="Generated anime face" />}
       </Modal>
       <Modal title="Customer Detection demonstration" visible={modal === "customer"} onCancel={close} width={1000} footer={<Button onClick={close}>Cancel</Button>} destroyOnClose>
-        <video width="100%" controls preload="metadata"><source src="/videos/customer-detection.mp4" type="video/mp4" />Your browser does not support video.</video>
+        <video className="project-video" controls preload="metadata"><source src="/videos/customer-detection.mp4" type="video/mp4" />Your browser does not support video.</video>
       </Modal>
       <Modal title="Image Segmentation demonstration" visible={modal === "segmentation"} onCancel={close} width={1000} footer={<Button onClick={close}>Cancel</Button>} destroyOnClose>
-        <video width="100%" controls preload="metadata"><source src="/videos/image-segmentation.mp4" type="video/mp4" />Your browser does not support video.</video>
+        <video className="project-video" controls preload="metadata"><source src="/videos/image-segmentation.mp4" type="video/mp4" />Your browser does not support video.</video>
       </Modal>
       <Modal title="Game example" visible={modal === "rl"} onCancel={close} width={1000} footer={<Button onClick={close}>Cancel</Button>} destroyOnClose>
-        <video width="100%" controls><source src="/videos/rl_games.webm" type="video/webm" />Your browser does not support video.</video>
+        <video className="project-video" controls><source src="/videos/rl_games.webm" type="video/webm" />Your browser does not support video.</video>
       </Modal>
       <Modal title="Video example" visible={modal === "lander"} onCancel={close} width={800} footer={<Button onClick={close}>Cancel</Button>} destroyOnClose>
-        <video width="100%" controls><source src="/videos/lander.webm" type="video/webm" />Your browser does not support video.</video>
+        <video className="project-video" controls><source src="/videos/lander.webm" type="video/webm" />Your browser does not support video.</video>
       </Modal>
     </section>
   );
