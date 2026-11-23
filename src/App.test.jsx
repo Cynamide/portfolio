@@ -27,7 +27,7 @@ test('shows interactive Foundations notes on the ML Systems page', () => {
   fireEvent.click(screen.getByRole('button', { name: 'H100 SXM' }));
   expect(screen.getByText('H100 ridge point')).toBeInTheDocument();
   fireEvent.change(screen.getByLabelText(/Arithmetic intensity/), { target: { value: '400' } });
-  expect(screen.getByText('Compute')).toBeInTheDocument();
+  expect(screen.getByText('Limiting resource').parentElement).toHaveTextContent('Compute');
   fireEvent.click(screen.getByText('Prefill and decode'));
   fireEvent.click(screen.getByRole('button', { name: 'Decode' }));
   expect(screen.getByText('Decode step')).toBeInTheDocument();

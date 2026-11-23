@@ -81,3 +81,18 @@
 .ml-article .ml-sources { color: #aebed0; border-top: 1px solid #344356; padding-top: 18px; margin-top: 32px; font-size: 14px; }
 .ml-sources a { color: #b7d4fb; text-decoration: underline; }
 @media (max-width: 600px) { .ml-lab { padding: 18px; } .ml-results { grid-template-columns: 1fr; } .ml-results div { flex-direction: row; justify-content: space-between; } .ml-flow { flex-direction: column; } .ml-flow-arrow { transform: rotate(90deg); line-height: 1; } }
+.ml-table-wrap { width: 100%; overflow-x: auto; margin: 22px 0; border: 1px solid #3d526d; border-radius: 7px; background: #121d2a; }
+.ml-table { width: 100%; border-collapse: collapse; color: #cfdae8; font-size: 14px; line-height: 1.5; text-align: left; }
+.ml-table caption { padding: 15px 16px; color: #e8f1ff; font-weight: 600; text-align: left; background: #1d2d41; }
+.ml-table th, .ml-table td { padding: 12px 14px; border-top: 1px solid #34465c; vertical-align: top; }
+.ml-table thead th { color: #afc7e6; font-size: 13px; font-weight: 600; }
+.ml-table tbody th { color: #e9f0f9; font-weight: 600; }
+.ml-math-flow, .ml-scenarios { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 20px 0; }
+.ml-math-flow > div, .ml-scenarios > div { display: flex; flex-direction: column; gap: 8px; padding: 17px; background: #19283a; border: 1px solid #3e5774; border-radius: 6px; }
+.ml-math-flow span, .ml-scenarios span { color: #aac7eb; font-size: 12px; font-weight: 600; letter-spacing: .04em; }
+.ml-math-flow strong { color: #d7e3f2; font-size: 14px; font-weight: 400; }.ml-math-flow b { color: #f0c999; font-size: 20px; }
+.ml-scenarios strong { color: #f0f4fb; font-size: 16px; }.ml-scenarios p { margin: 0; font-size: 14px; line-height: 1.6; }
+.ml-quant { display: grid; gap: 14px; margin: 22px 0; padding: 20px; background: #142131; border: 1px solid #3e5774; border-radius: 6px; }
+.ml-quant > div { display: grid; grid-template-columns: 55px 1fr 72px; gap: 12px; align-items: center; color: #d5e0ee; font-size: 14px; }
+.ml-quant-track { height: 14px; background: #273b52; border-radius: 3px; overflow: hidden; }.ml-quant-bar { height: 100%; background: #91b9e9; border-radius: 3px; }.ml-quant-full { width: 100%; }.ml-quant-half { width: 50%; background: #e3b77e; }.ml-quant strong { white-space: nowrap; color: #eff5ff; }
+@media (max-width: 600px) { .ml-table { min-width: 480px; } .ml-table-wrap::after { content: 'Scroll sideways to see the full table'; display: block; padding: 8px 14px; color: #9db4cf; font-size: 12px; } .ml-math-flow, .ml-scenarios { grid-template-columns: 1fr; } }
