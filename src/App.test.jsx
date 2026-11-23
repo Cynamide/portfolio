@@ -13,7 +13,7 @@ test('preserves project demos and links to the ML Systems notes', () => {
   expect(screen.getByRole('link', { name: /ML Systems/i })).toHaveAttribute('href', '/blog/ml-systems');
 });
 
-test('shows an empty Foundations section on the ML Systems page', () => {
+test('shows interactive Foundations notes on the ML Systems page', () => {
   window.history.replaceState({}, '', '/blog/ml-systems');
   render(<App />);
   expect(screen.getByRole('heading', { name: /ML Systems/i })).toBeInTheDocument();
@@ -22,5 +22,13 @@ test('shows an empty Foundations section on the ML Systems page', () => {
   expect(topic).not.toHaveAttribute('open');
   fireEvent.click(summary);
   expect(topic).toHaveAttribute('open');
-  expect(screen.getByText('Notes coming soon.')).toBeInTheDocument();
+  fireEvent.click(screen.getByText('The memory wall'));
+  expect(screen.getByText('Explore the roofline')).toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button', { name: 'H100 SXM' }));
+  expect(screen.getByText('H100 ridge point')).toBeInTheDocument();
+  fireEvent.change(screen.getByLabelText(/Arithmetic intensity/), { target: { value: '400' } });
+  expect(screen.getByText('Compute')).toBeInTheDocument();
+  fireEvent.click(screen.getByText('Prefill and decode'));
+  fireEvent.click(screen.getByRole('button', { name: 'Decode' }));
+  expect(screen.getByText('Decode step')).toBeInTheDocument();
 });
