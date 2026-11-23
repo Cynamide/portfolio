@@ -103,3 +103,8 @@
 .ml-equation span { color: #aac7eb; font-size: 12px; font-weight: 600; letter-spacing: .04em; }
 .ml-equation strong { color: #d7e3f2; font-size: 14px; font-weight: 400; }
 .ml-equation b { color: #f0c999; font-size: 16px; }
+.ml-next-topic { margin-top: 16px; }
+.ml-pipe-rows { display: grid; gap: 15px; margin: 24px 0; }
+.ml-pipe-rows > div { display: grid; grid-template-columns: 125px minmax(0, 1fr) 64px; gap: 10px; align-items: center; color: #d6e1ef; font-size: 13px; }
+.ml-pipe-rows > div > div { height: 14px; background: #273b52; border-radius: 4px; overflow: hidden; }.ml-pipe-rows i { display: block; height: 100%; background: #e3b77e; border-radius: 4px; }.ml-pipe-rows i.ml-pipe-gpu { background: #91b9e9; }.ml-pipe-rows strong { text-align: right; white-space: nowrap; color: #eff5ff; }
+@media (max-width: 600px) { .ml-pipe-rows > div { grid-template-columns: 1fr 65px; }.ml-pipe-rows > div > span { grid-column: 1 / -1; } }

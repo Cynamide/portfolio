@@ -35,3 +35,17 @@ test('shows interactive Foundations notes on the ML Systems page', () => {
   fireEvent.change(screen.getByLabelText(/Requests in the batch/), { target: { value: '2' } });
   expect(screen.getByText('0.537 GB')).toBeInTheDocument();
 });
+
+
+test('explores pipeline and quantization estimates', () => {
+  window.history.replaceState({}, '', '/blog/ml-systems');
+  render(<App />);
+  fireEvent.click(screen.getByText('Optimization'));
+  fireEvent.click(screen.getByText('When the GPU waits for data'));
+  const workerSlider = screen.getByLabelText(/CPU workers/);
+  fireEvent.change(workerSlider, { target: { value: '16' } });
+  expect(screen.getByText('43.7%')).toBeInTheDocument();
+  fireEvent.click(screen.getByText('Quantization and performance'));
+  fireEvent.click(screen.getByRole('button', { name: 'INT4' }));
+  expect(screen.getByText('Speedup vs FP16').parentElement).toHaveTextContent('3.4×');
+});

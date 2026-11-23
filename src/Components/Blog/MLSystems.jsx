@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Foundations } from "./Foundations";
+import { Optimization } from "./Optimization";
 import "./Blog.css";
 
 export const MLSystems = () => {
@@ -30,6 +31,14 @@ export const MLSystems = () => {
             <div className="ml-topic-content">
               <Foundations />
             </div>
+          </details>
+          <details className="ml-topic ml-next-topic" id="optimization">
+            <summary className="ml-topic-summary">
+              <span className="ml-topic-icon" aria-hidden="true"><span /><span /><span /><span /></span>
+              <span className="ml-topic-copy"><strong>Optimization</strong><span>Making better use of compute, memory, and data.</span></span>
+              <span className="ml-topic-toggle" aria-hidden="true" />
+            </summary>
+            <div className="ml-topic-content"><Optimization /></div>
           </details>
         </div>
         <footer className="ml-notes-footer"><span>Arjit Agarwal</span><a href="/#blog">Back to blog</a></footer>
