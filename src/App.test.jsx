@@ -1,12 +1,64 @@
-import { test, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { test, expect, afterEach, vi } from 'vitest';
+import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import App from './App';
-
-test('preserves the original project demos alongside recent experience', () => {
+afterEach(() => { cleanup(); window.history.replaceState({}, '', '/'); vi.restoreAllMocks(); });
+test('preserves the portfolio and blog entry', () => {
   render(<App />);
   expect(screen.getByText('QuiverAI')).toBeInTheDocument();
   expect(screen.getByText('LocalEval')).toBeInTheDocument();
-  expect(screen.getByText('WGAN-GP')).toBeInTheDocument();
   expect(screen.getByRole('button', { name: /try it out/i })).toBeInTheDocument();
-  expect(screen.getAllByRole('button', { name: /see it in action/i })).toHaveLength(4);
+  expect(screen.getByRole('link', { name: 'Read my blog' })).toHaveAttribute('href', '#blog');
+  expect(screen.getByRole('link', { name: /ML Systems/i })).toHaveAttribute('href', '/blog/ml-systems');
+  expect(document.querySelector('#projects').nextElementSibling).toHaveAttribute('id', 'blog');
+});
+test('switches notes, updates the URL, and responds to browser history', async () => {
+  vi.spyOn(window, 'scrollTo').mockImplementation(() => {});
+  window.history.replaceState({}, '', '/blog/ml-systems');
+  render(<App />);
+  expect(screen.getByRole('heading', { name: /Getting started with the roofline/i })).toBeVisible();
+  expect(window.location.pathname).toBe('/blog/ml-systems/foundations/getting-started-with-the-roofline');
+  const nav = screen.getByRole('navigation', { name: 'Notes by topic' });
+  fireEvent.click(within(nav).getByRole('link', { name: 'The memory wall' }));
+  await waitFor(() => expect(window.location.pathname).toBe('/blog/ml-systems/foundations/the-memory-wall'));
+  expect(within(nav).getByRole('link', { name: 'The memory wall' })).toHaveAttribute('aria-current', 'page');
+  expect(screen.getByText('Explore the roofline')).toBeVisible();
+  fireEvent.click(screen.getByRole('button', { name: 'H100 SXM' }));
+  expect(screen.getByText('H100 ridge point')).toBeVisible();
+  fireEvent.change(screen.getByLabelText(/Arithmetic intensity/), { target: { value: '400' } });
+  expect(screen.getByText('Limiting resource').parentElement).toHaveTextContent('Compute');
+  window.history.replaceState({}, '', '/blog/ml-systems/foundations/prefill-and-decode');
+  fireEvent.popState(window);
+  expect(screen.getByRole('heading', { name: /Prefill and decode/i })).toBeVisible();
+  fireEvent.click(screen.getByRole('button', { name: 'Decode' }));
+  expect(screen.getByText('Decode step')).toBeVisible();
+});
+test('loads deep links and retains optimization interactions', async () => {
+  vi.spyOn(window, 'scrollTo').mockImplementation(() => {});
+  window.history.replaceState({}, '', '/blog/ml-systems/optimization/when-the-gpu-waits-for-data');
+  render(<App />);
+  expect(screen.getByRole('heading', { name: /When the GPU waits for data/i })).toBeVisible();
+  fireEvent.change(screen.getByLabelText(/CPU workers/), { target: { value: '16' } });
+  expect(screen.getByText('43.7%')).toBeVisible();
+  const nav = screen.getByRole('navigation', { name: 'Notes by topic' });
+  fireEvent.click(within(nav).getByRole('link', { name: 'Quantization and performance' }));
+  await waitFor(() => expect(window.location.pathname).toContain('/optimization/quantization-and-performance'));
+  fireEvent.click(screen.getByRole('button', { name: 'INT4' }));
+  expect(screen.getByText('Speedup vs FP16').parentElement).toHaveTextContent('3.4×');
+});
+test('retains interactive KV allocation', () => {
+  window.history.replaceState({}, '', '/blog/ml-systems/foundations/kv-cache-and-paged-attention');
+  render(<App />);
+  expect(screen.getByText('Paged slots reserved').parentElement).toHaveTextContent('1,008');
+  fireEvent.click(screen.getByRole('button', { name: '256 tokens' }));
+  expect(screen.getByText('Paged slots reserved').parentElement).toHaveTextContent('1,024');
+  fireEvent.click(screen.getByRole('button', { name: 'Paged', exact: true }));
+  expect(screen.getByText(/new request uses four separate free blocks/)).toBeVisible();
+});
+test('toggles the mobile topics drawer', () => {
+  window.history.replaceState({}, '', '/blog/ml-systems');
+  render(<App />);
+  const toggle = screen.getByRole('button', { name: /browse topics/i });
+  expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  fireEvent.click(toggle);
+  expect(toggle).toHaveAttribute('aria-expanded', 'true');
 });
