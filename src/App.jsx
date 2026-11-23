@@ -30,11 +30,11 @@ function App() {
       <Cursor />
       <Navbar />
       <Landing />
+      <Blog />
       <AboutMe />
       <TechIKnow />
       <Experience />
       <Projects />
-      <Blog />
       <Contact />
     </div>
   );

@@ -7,7 +7,9 @@ test('preserves the portfolio and blog entry', () => {
   expect(screen.getByText('QuiverAI')).toBeInTheDocument();
   expect(screen.getByText('LocalEval')).toBeInTheDocument();
   expect(screen.getByRole('button', { name: /try it out/i })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Read my blog' })).toHaveAttribute('href', '#blog');
   expect(screen.getByRole('link', { name: /ML Systems/i })).toHaveAttribute('href', '/blog/ml-systems');
+  expect(document.querySelector('#landing').nextElementSibling).toHaveAttribute('id', 'blog');
 });
 test('switches notes, updates the URL, and responds to browser history', async () => {
   vi.spyOn(window, 'scrollTo').mockImplementation(() => {});
