@@ -98,3 +98,8 @@
 @media (max-width: 600px) { .ml-table { min-width: 480px; } .ml-table-wrap::after { content: 'Scroll sideways to see the full table'; display: block; padding: 8px 14px; color: #9db4cf; font-size: 12px; } .ml-math-flow, .ml-scenarios { grid-template-columns: 1fr; } }
 .ml-cache-label { margin-top: 20px; }.ml-cache-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 22px 0; }.ml-cache-flow div { padding: 14px; background: #1e3046; border: 1px solid #415b7b; border-radius: 5px; }.ml-cache-flow span { display: block; margin-bottom: 7px; color: #a9c5ed; font-size: 12px; }.ml-cache-flow strong { color: #eef5ff; font-size: 14px; line-height: 1.5; }.ml-cache-result { display: flex; justify-content: space-between; gap: 12px; padding: 15px 0; margin-bottom: 12px; border-top: 1px solid #3c5069; border-bottom: 1px solid #3c5069; color: #d4e0ef; font-size: 14px; }.ml-cache-result strong { color: #f0c999; white-space: nowrap; }
 @media (max-width: 600px) { .ml-cache-flow { grid-template-columns: 1fr; } }
+.ml-article .ml-formula-heading { margin: 28px 0 12px; color: #edf3fa; font-size: 17px; }
+.ml-equation { display: flex; flex-direction: column; gap: 7px; padding: 18px; margin: 20px 0; background: #142131; border: 1px solid #3e5774; border-radius: 6px; overflow-wrap: anywhere; }
+.ml-equation span { color: #aac7eb; font-size: 12px; font-weight: 600; letter-spacing: .04em; }
+.ml-equation strong { color: #d7e3f2; font-size: 14px; font-weight: 400; }
+.ml-equation b { color: #f0c999; font-size: 16px; }
