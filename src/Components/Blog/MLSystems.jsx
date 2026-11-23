@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { foundations } from "../../blog/mlSystems";
+import { Foundations } from "./Foundations";
 import "./Blog.css";
 
 export const MLSystems = () => {
@@ -28,12 +28,7 @@ export const MLSystems = () => {
               <span className="ml-topic-toggle" aria-hidden="true" />
             </summary>
             <div className="ml-topic-content">
-              {foundations.length === 0 ? <p className="ml-empty">Notes coming soon.</p> : foundations.map((note) => (
-                <details className="ml-note" key={note.slug} id={`note-${note.slug}`}>
-                  <summary><strong>{note.title}</strong>{note.summary && <span>{note.summary}</span>}</summary>
-                  <div>{note.content.map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>
-                </details>
-              ))}
+              <Foundations />
             </div>
           </details>
         </div>
