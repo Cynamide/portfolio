@@ -31,9 +31,9 @@ test('shows interactive Foundations notes on the ML Systems page', () => {
   fireEvent.click(screen.getByText('Prefill and decode'));
   fireEvent.click(screen.getByRole('button', { name: 'Decode' }));
   expect(screen.getByText('Decode step')).toBeInTheDocument();
-  expect(screen.getByText('0.268 GB')).toBeInTheDocument();
+  expect(screen.getByText('Estimated KV cache for this batch').parentElement).toHaveTextContent('0.268 GB');
   fireEvent.change(screen.getByLabelText(/Requests in the batch/), { target: { value: '2' } });
-  expect(screen.getByText('0.537 GB')).toBeInTheDocument();
+  expect(screen.getByText('Estimated KV cache for this batch').parentElement).toHaveTextContent('0.537 GB');
 });
 
 
@@ -48,4 +48,17 @@ test('explores pipeline and quantization estimates', () => {
   fireEvent.click(screen.getByText('Quantization and performance'));
   fireEvent.click(screen.getByRole('button', { name: 'INT4' }));
   expect(screen.getByText('Speedup vs FP16').parentElement).toHaveTextContent('3.4×');
+});
+
+
+test('compares paged and contiguous KV allocation', () => {
+  window.history.replaceState({}, '', '/blog/ml-systems');
+  render(<App />);
+  fireEvent.click(screen.getByText('Foundations'));
+  fireEvent.click(screen.getByText('KV cache and paged attention'));
+  expect(screen.getByText('Paged slots reserved').parentElement).toHaveTextContent('1,008');
+  fireEvent.click(screen.getByRole('button', { name: '256 tokens' }));
+  expect(screen.getByText('Paged slots reserved').parentElement).toHaveTextContent('1,024');
+  fireEvent.click(screen.getByRole('button', { name: 'Paged', exact: true }));
+  expect(screen.getByText(/new request uses four separate free blocks/)).toBeInTheDocument();
 });

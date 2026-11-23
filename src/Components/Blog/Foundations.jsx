@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { KVFoundations } from "./KVFoundations";
+import { RooflineBasics } from "./RooflineBasics";
 
 const hardware = { A100: { compute: 312, bandwidth: 2.039 }, H100: { compute: 989, bandwidth: 3.35 } };
 
@@ -57,6 +59,7 @@ function KVCache() {
 
 export function Foundations() {
  return <>
+  <RooflineBasics />
   <details className="ml-note" id="note-memory-wall"><summary><strong>The memory wall</strong><span>Why more GPU compute does not always mean a faster model.</span></summary><article className="ml-article">
     <p>A GPU needs data before it can perform calculations. If memory cannot supply that data fast enough, some compute capacity sits idle. This gap between compute speed and data movement is called the memory wall.</p>
     <h3>Two limits to check</h3>
@@ -103,5 +106,6 @@ export function Foundations() {
     <div className="ml-table-wrap"><table className="ml-table"><caption>Modeled serving against both latency targets</caption><thead><tr><th scope="col">GPU</th><th scope="col">TTFT</th><th scope="col">ITL</th><th scope="col">Meets both?</th></tr></thead><tbody><tr><th scope="row">T4</th><td>2,294.7 ms</td><td>52.19 ms</td><td>No</td></tr><tr><th scope="row">A100</th><td>478.1 ms</td><td>8.46 ms</td><td>No</td></tr><tr><th scope="row">H100</th><td>150.8 ms</td><td>5.27 ms</td><td>Yes</td></tr><tr><th scope="row">H200</th><td>150.8 ms</td><td>3.78 ms</td><td>Yes</td></tr></tbody></table></div>
     <p className="ml-sources">Further reading: <a href="https://developer.nvidia.com/blog/mastering-llm-techniques-inference-optimization/">NVIDIA on inference and the KV cache</a>, <a href="https://developer.nvidia.com/blog/co-designing-ai-model-attention-for-fast-interactive-long-context-inference/">NVIDIA on prefill and decode tradeoffs</a>.</p>
   </article></details>
+ <KVFoundations />
  </>;
 }
