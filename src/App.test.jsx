@@ -31,4 +31,7 @@ test('shows interactive Foundations notes on the ML Systems page', () => {
   fireEvent.click(screen.getByText('Prefill and decode'));
   fireEvent.click(screen.getByRole('button', { name: 'Decode' }));
   expect(screen.getByText('Decode step')).toBeInTheDocument();
+  expect(screen.getByText('0.268 GB')).toBeInTheDocument();
+  fireEvent.change(screen.getByLabelText(/Requests in the batch/), { target: { value: '2' } });
+  expect(screen.getByText('0.537 GB')).toBeInTheDocument();
 });
