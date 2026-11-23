@@ -23,9 +23,9 @@ function QuantExplorer() {
   </div>;
 }
 
-export function Optimization() {
+export function Optimization({ selected }) {
  return <>
-  <details className="ml-note" id="note-data-pipeline"><summary><strong>When the GPU waits for data</strong><span>Find the bottleneck between storage, CPU preprocessing, and GPU compute.</span></summary><article className="ml-article">
+  <details className="ml-note" id="note-data-pipeline" open hidden={selected !== "when-the-gpu-waits-for-data"}><summary><strong>When the GPU waits for data</strong><span>Find the bottleneck between storage, CPU preprocessing, and GPU compute.</span></summary><article className="ml-article">
     <p>A fast GPU needs the next batch ready when it finishes its current step. Storage and preprocessing can both leave the GPU waiting. Image preparation can include JPEG decoding, resizing, cropping, color changes, and normalization.</p>
     <div className="ml-cache-flow"><div><span>STORAGE</span><strong>Read image files</strong></div><div><span>CPU</span><strong>Decode and transform images</strong></div><div><span>GPU</span><strong>Run the model step</strong></div></div>
     <p>Preprocessing can run while the GPU works on the previous batch. With enough prefetching, steady-state throughput is set by the slowest stage.</p>
@@ -42,7 +42,7 @@ export function Optimization() {
     <div className="ml-table-wrap"><table className="ml-table"><caption>Adding workers at batch size 512</caption><thead><tr><th scope="col">Workers</th><th scope="col">Assumed CPU throughput</th><th scope="col">Modeled GPU duty cycle</th></tr></thead><tbody><tr><th scope="row">8</th><td>2 GB/s</td><td>21.4%</td></tr><tr><th scope="row">16</th><td>4 GB/s</td><td>42.9%</td></tr><tr><th scope="row">32</th><td>8 GB/s</td><td>85.7%</td></tr></tbody></table></div><p>These figures assume each extra worker adds the same throughput. CPU contention, memory bandwidth, storage, and transfer costs can limit that scaling. Under the same linear assumption, about 37 workers would supply the 9.16 GB/s needed to match the GPU at batch size 256.</p>
     <p className="ml-sources">Further reading: <a href="https://docs.pytorch.org/tutorials/intermediate/intermediate_data_loading_tutorial.html">PyTorch on data loading</a>, <a href="https://developer.nvidia.com/dali">NVIDIA DALI</a>.</p>
   </article></details>
-  <details className="ml-note" id="note-quantization"><summary><strong>Quantization and performance</strong><span>Why smaller weights can help decode without always speeding up compute.</span></summary><article className="ml-article">
+  <details className="ml-note" id="note-quantization" open hidden={selected !== "quantization-and-performance"}><summary><strong>Quantization and performance</strong><span>Why smaller weights can help decode without always speeding up compute.</span></summary><article className="ml-article">
     <p>Quantization stores numbers with fewer bits. Smaller weights reduce memory use, but their effect on speed depends on the workload.</p>
     <div className="ml-table-wrap"><table className="ml-table"><caption>Weight storage for 8.03 billion parameters</caption><thead><tr><th scope="col">Format</th><th scope="col">Bytes per weight</th><th scope="col">Approximate weight size</th><th scope="col">Size relative to FP16</th></tr></thead><tbody><tr><th scope="row">FP16</th><td>2</td><td>16.06 GB</td><td>1×</td></tr><tr><th scope="row">INT8</th><td>1</td><td>8.03 GB</td><td>½</td></tr><tr><th scope="row">INT4</th><td>0.5</td><td>4.02 GB</td><td>¼</td></tr></tbody></table></div><p>Actual storage can include scales, metadata, and parameters kept at higher precision.</p>
     <h3>Memory-bound decode</h3><p>For a single request, a decode step has to access model weights for each new token. Reducing the weight traffic can reduce inter-token latency. This comparison models an 8B language model on H100 with a 2,048-token context.</p>

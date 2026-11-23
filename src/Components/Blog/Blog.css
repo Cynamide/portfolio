@@ -109,3 +109,31 @@
 .ml-pipe-rows > div > div { height: 14px; background: #273b52; border-radius: 4px; overflow: hidden; }.ml-pipe-rows i { display: block; height: 100%; background: #e3b77e; border-radius: 4px; }.ml-pipe-rows i.ml-pipe-gpu { background: #91b9e9; }.ml-pipe-rows strong { text-align: right; white-space: nowrap; color: #eff5ff; }
 @media (max-width: 600px) { .ml-pipe-rows > div { grid-template-columns: 1fr 65px; }.ml-pipe-rows > div > span { grid-column: 1 / -1; } }
 .ml-blocks { display: grid; grid-template-columns: repeat(10,minmax(0,1fr)); gap: 5px; margin: 22px 0 12px; }.ml-blocks span { height: 34px; border-radius: 3px; border: 1px solid #5a7191; }.ml-blocks .free, .ml-block-legend .free { background: #142131; }.ml-blocks .occupied, .ml-block-legend .occupied { background: #6484aa; }.ml-blocks .selected, .ml-block-legend .selected { background: #dfaf73; }.ml-block-legend { display: flex; flex-wrap: wrap; gap: 10px 18px; color: #c2cfdf; font-size: 12px; margin-bottom: 18px; }.ml-block-legend span { display: flex; align-items: center; gap: 6px; }.ml-block-legend i { width: 12px; height: 12px; border: 1px solid #6b809a; border-radius: 2px; }
+/* ML Systems reader */
+.ml-reader-shell { max-width: 1440px; margin: 0 auto; padding: 0 36px; }
+.ml-reader-header { height: 86px; display: flex; align-items: center; gap: 22px; border-bottom: 1px solid #293848; }
+.ml-reader-brand { color: #edf3fb; font-size: 16px; font-weight: 600; display: flex; gap: 14px; align-items: center; }
+.ml-reader-brand span { color: #91a5bf; font-size: 13px; font-weight: 400; border-left: 1px solid #3b495b; padding-left: 14px; }
+.ml-reader-header .ml-back-link { margin-left: auto; }
+.ml-reader-layout { display: grid; grid-template-columns: 255px minmax(0,1fr); gap: clamp(40px,7vw,106px); align-items: start; }
+.ml-reader-sidebar { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; padding: 56px 18px 36px 0; }
+.ml-sidebar-label { color: #86a4c8; font-size: 11px; font-weight: 600; letter-spacing: .13em; margin: 0 0 25px; }
+.ml-nav-group { margin: 0 0 22px; }
+.ml-group-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; color: #e2ebf8; background: none; border: 0; padding: 9px 10px; font: inherit; font-weight: 600; font-size: 15px; text-align: left; cursor: pointer; }
+.ml-group-toggle span { font-size: 21px; color: #a1c4ed; transform: rotate(-90deg); transition: transform .2s; line-height: 1; }.ml-group-toggle span.expanded { transform: rotate(0); }
+.ml-nav-group ul { list-style: none; padding: 3px 0 0 10px; margin: 0; border-left: 1px solid #34465c; }
+.ml-nav-group li { margin: 3px 0; }.ml-nav-group li a { display: block; border-radius: 5px; color: #aab9cc; font-size: 14px; line-height: 1.45; padding: 9px 12px; transition: background .18s, color .18s; }.ml-nav-group li a:hover { color: #f2f6fc; background: #172537; }.ml-nav-group li a[aria-current="page"] { color: #d8eaff; background: #233c58; box-shadow: inset 3px 0 #94bcea; }
+.ml-sidebar-home { display: inline-block; color: #a9bed8; font-size: 13px; margin: 20px 0 0 10px; }
+.ml-reading-pane { width: min(100%, 790px); min-width: 0; padding: 58px 0 100px; opacity: 1; transform: translateY(0); transition: opacity .15s ease, transform .15s ease; }
+.ml-reading-pane.is-fading { opacity: 0; transform: translateY(5px); }
+.ml-reading-breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; color: #8ea3ba; font-size: 13px; margin: 0 0 45px; }.ml-reading-breadcrumb a { color: #a8c0dd; }
+.ml-reading-eyebrow { color: #a3bfe3; font-size: 12px; font-weight: 600; letter-spacing: .12em; margin: 0 0 15px; }
+.ml-reading-title { color: #f3f6fb; font-size: clamp(32px,4vw,51px); line-height: 1.15; letter-spacing: -.03em; margin: 0 0 18px; outline: none; }.ml-reading-title span { color: #a8c2ec; }
+.ml-reading-description { color: #b8c7d9; font-size: 17px; line-height: 1.7; margin: 0; }.ml-reading-rule { height: 1px; background: #303f52; margin: 38px 0 32px; }
+.ml-reader-content .ml-note { border: 0; padding: 0; }.ml-reader-content .ml-note[hidden] { display: none !important; }.ml-reader-content .ml-note > summary { display: none; }.ml-reader-content .ml-article { padding: 0; }
+.ml-note-pagination { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; border-top: 1px solid #303f52; margin-top: 44px; padding-top: 24px; }.ml-note-pagination a { display: flex; flex-direction: column; gap: 7px; color: #c8dffb; padding: 12px 0; }.ml-note-pagination a:last-child { margin-left: auto; text-align: right; }.ml-note-pagination span { color: #8ea7c6; font-size: 11px; letter-spacing: .1em; }.ml-note-pagination strong { font-size: 14px; font-weight: 500; }
+.ml-reader-footer { display: flex; justify-content: space-between; border-top: 1px solid #293848; color: #9eafc3; padding: 25px 0; font-size: 14px; }.ml-reader-footer a { color: #bacbe3; }
+.ml-mobile-navigation { display: none; }
+.ml-reader-page button:focus-visible, .ml-reader-page a:focus-visible { outline: 2px solid #a8c2ec; outline-offset: 3px; }
+@media (max-width: 800px) { .ml-reader-shell { padding: 0 22px; }.ml-reader-header { height: 70px; gap: 14px; }.ml-reader-brand span { display: none; }.ml-reader-layout { display: block; }.ml-mobile-navigation { display: flex; gap: 14px; align-items: center; padding: 18px 0; border-bottom: 1px solid #293848; }.ml-mobile-navigation > span { color: #aabbd0; font-size: 12px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }.ml-menu-button { display: flex; gap: 9px; align-items: center; background: #1b2b40; border: 1px solid #3d5572; border-radius: 5px; color: #dfebf9; padding: 9px 12px; font: inherit; font-size: 13px; white-space: nowrap; cursor: pointer; }.ml-reader-sidebar { display: none; position: static; max-height: none; padding: 24px 0 10px; border-bottom: 1px solid #293848; }.ml-reader-sidebar.is-open { display: block; }.ml-sidebar-label { margin-bottom: 14px; }.ml-nav-group { margin-bottom: 12px; }.ml-sidebar-home { margin: 5px 0 10px 10px; }.ml-reading-pane { padding: 36px 0 75px; }.ml-reading-breadcrumb { margin-bottom: 30px; }.ml-reading-rule { margin: 28px 0; } }
+@media (prefers-reduced-motion: reduce) { .ml-reading-pane, .ml-group-toggle span { transition: none; } }

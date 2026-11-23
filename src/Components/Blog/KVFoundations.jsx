@@ -24,7 +24,7 @@ function Fragmentation() {
  </div>;
 }
 
-export function KVFoundations() { return <details className="ml-note" id="note-kv-cache"><summary><strong>KV cache and paged attention</strong><span>How context length, concurrent requests, and memory allocation affect serving.</span></summary><article className="ml-article">
+export function KVFoundations({ selected }) { return <details className="ml-note" id="note-kv-cache" open hidden={selected !== "kv-cache-and-paged-attention"}><summary><strong>KV cache and paged attention</strong><span>How context length, concurrent requests, and memory allocation affect serving.</span></summary><article className="ml-article">
  <p>The KV cache stores attention keys and values from earlier tokens so the model can reuse them during decoding. The memory cost grows with context length and the number of active requests.</p>
  <div className="ml-cache-flow"><div><span>QUERY</span><strong>What does the current token look for?</strong></div><div><span>KEY</span><strong>Which earlier tokens are relevant?</strong></div><div><span>VALUE</span><strong>What information do those tokens provide?</strong></div></div>
  <h3>Calculate the cache size</h3><p>For standard full-attention layers, cache storage grows with the number of layers, retained tokens, active requests, KV heads, head dimensions, and bytes per value.</p>

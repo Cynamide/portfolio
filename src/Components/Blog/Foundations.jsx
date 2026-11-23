@@ -57,10 +57,10 @@ function KVCache() {
   </div>;
 }
 
-export function Foundations() {
+export function Foundations({ selected }) {
  return <>
-  <RooflineBasics />
-  <details className="ml-note" id="note-memory-wall"><summary><strong>The memory wall</strong><span>Why more GPU compute does not always mean a faster model.</span></summary><article className="ml-article">
+  <RooflineBasics selected={selected} />
+  <details className="ml-note" id="note-memory-wall" open hidden={selected !== "the-memory-wall"}><summary><strong>The memory wall</strong><span>Why more GPU compute does not always mean a faster model.</span></summary><article className="ml-article">
     <p>A GPU needs data before it can perform calculations. If memory cannot supply that data fast enough, some compute capacity sits idle. The memory wall describes the gap between how fast the GPU can compute and how fast it can get data.</p>
     <h3>Two limits to check</h3>
     <div className="ml-table-wrap"><table className="ml-table"><caption>What can limit a workload?</caption><thead><tr><th scope="col">Resource</th><th scope="col">What it measures</th><th scope="col">When it matters</th></tr></thead><tbody><tr><th scope="row">Compute</th><td>Operations per second</td><td>Many calculations per byte of data</td></tr><tr><th scope="row">Memory bandwidth</th><td>Bytes moved per second</td><td>Lots of data moved for each calculation</td></tr></tbody></table></div>
@@ -86,7 +86,7 @@ export function Foundations() {
     <p>Real decode steps also read the KV cache and move activations. Those extra bytes reduce arithmetic intensity. Context length, batch size, and how the serving system uses the GPU affect the actual bottleneck.</p>
     <p className="ml-sources">Further reading: <a href="https://developer.nvidia.com/blog/accelerating-hpc-applications-with-nsight-compute-roofline-analysis/">NVIDIA's roofline guide</a>, <a href="https://www.nvidia.com/en-us/data-center/a100/">A100 specifications</a>, <a href="https://www.nvidia.com/en-us/data-center/h100/">H100 specifications</a>.</p>
   </article></details>
-  <details className="ml-note" id="note-prefill-decode"><summary><strong>Prefill and decode</strong><span>Why the same request can put pressure on different parts of a GPU.</span></summary><article className="ml-article">
+  <details className="ml-note" id="note-prefill-decode" open hidden={selected !== "prefill-and-decode"}><summary><strong>Prefill and decode</strong><span>Why the same request can put pressure on different parts of a GPU.</span></summary><article className="ml-article">
     <p>A language model first processes the prompt. It then generates a response one token at a time. These phases, called prefill and decode, put different demands on the GPU.</p>
     <div className="ml-equation"><span>KEY IDEA</span><strong>One request, two phases</strong><b>Prefill processes the prompt. Decode generates the response.</b></div>
     <PhaseDiagram />
@@ -106,6 +106,6 @@ export function Foundations() {
     <div className="ml-table-wrap"><table className="ml-table"><caption>Modeled serving against both latency targets</caption><thead><tr><th scope="col">GPU</th><th scope="col">TTFT</th><th scope="col">ITL</th><th scope="col">Meets both?</th></tr></thead><tbody><tr><th scope="row">T4</th><td>2,294.7 ms</td><td>52.19 ms</td><td>No</td></tr><tr><th scope="row">A100</th><td>478.1 ms</td><td>8.46 ms</td><td>No</td></tr><tr><th scope="row">H100</th><td>150.8 ms</td><td>5.27 ms</td><td>Yes</td></tr><tr><th scope="row">H200</th><td>150.8 ms</td><td>3.78 ms</td><td>Yes</td></tr></tbody></table></div>
     <p className="ml-sources">Further reading: <a href="https://developer.nvidia.com/blog/mastering-llm-techniques-inference-optimization/">NVIDIA on inference and the KV cache</a>, <a href="https://developer.nvidia.com/blog/co-designing-ai-model-attention-for-fast-interactive-long-context-inference/">NVIDIA on prefill and decode tradeoffs</a>.</p>
   </article></details>
- <KVFoundations />
+ <KVFoundations selected={selected} />
  </>;
 }

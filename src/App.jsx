@@ -22,7 +22,7 @@ function App() {
     AOS.init();
     AOS.refresh();
   }, []);
-  if (window.location.pathname.replace(/\/$/, "") === "/blog/ml-systems") {
+  if (/^\/blog\/ml-systems(?:\/|$)/.test(window.location.pathname)) {
     return <div className="App"><Cursor /><MLSystems /></div>;
   }
   return (
