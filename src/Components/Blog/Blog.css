@@ -116,13 +116,13 @@
 .ml-reader-brand span { color: #91a5bf; font-size: 13px; font-weight: 400; border-left: 1px solid #3b495b; padding-left: 14px; }
 .ml-reader-header .ml-back-link { margin-left: auto; }
 .ml-reader-layout { display: grid; grid-template-columns: 255px minmax(0,1fr); gap: clamp(40px,7vw,106px); align-items: start; }
-.ml-reader-sidebar { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; padding: 56px 18px 36px 0; }
+.ml-reader-sidebar { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; padding: 40px 18px 36px 0; }
 .ml-sidebar-label { color: #86a4c8; font-size: 11px; font-weight: 600; letter-spacing: .13em; margin: 0 0 25px; }
 .ml-nav-group { margin: 0 0 22px; }
 .ml-group-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; color: #e2ebf8; background: none; border: 0; padding: 9px 10px; font: inherit; font-weight: 600; font-size: 15px; text-align: left; cursor: pointer; }
 .ml-group-toggle span { font-size: 21px; color: #a1c4ed; transform: rotate(-90deg); transition: transform .2s; line-height: 1; }.ml-group-toggle span.expanded { transform: rotate(0); }
 .ml-nav-group ul { list-style: none; padding: 3px 0 0 10px; margin: 0; border-left: 1px solid #34465c; }
-.ml-nav-group li { margin: 3px 0; }.ml-nav-group li a { display: block; border-radius: 5px; color: #aab9cc; font-size: 14px; line-height: 1.45; padding: 9px 12px; transition: background .18s, color .18s; }.ml-nav-group li a:hover { color: #f2f6fc; background: #172537; }.ml-nav-group li a[aria-current="page"] { color: #d8eaff; background: #233c58; box-shadow: inset 3px 0 #94bcea; }
+.ml-nav-group li { margin: 3px 0; }.ml-nav-group li a { display: block; border-radius: 5px; color: #aab9cc; font-size: 14px; line-height: 1.45; padding: 9px 12px; transition: background .18s, color .18s; }.ml-nav-group li a:hover { color: #f2f6fc; background: #172537; }.ml-nav-group li a[aria-current="page"] { color: #d8eaff; background: #233c58; }
 .ml-sidebar-home { display: inline-block; color: #a9bed8; font-size: 13px; margin: 20px 0 0 10px; }
 .ml-reading-pane { width: min(100%, 790px); min-width: 0; padding: 58px 0 100px; opacity: 1; transform: translateY(0); transition: opacity .15s ease, transform .15s ease; }
 .ml-reading-pane.is-fading { opacity: 0; transform: translateY(5px); }
@@ -137,3 +137,7 @@
 .ml-reader-page button:focus-visible, .ml-reader-page a:focus-visible { outline: 2px solid #a8c2ec; outline-offset: 3px; }
 @media (max-width: 800px) { .ml-reader-shell { padding: 0 22px; }.ml-reader-header { height: 70px; gap: 14px; }.ml-reader-brand span { display: none; }.ml-reader-layout { display: block; }.ml-mobile-navigation { display: flex; gap: 14px; align-items: center; padding: 18px 0; border-bottom: 1px solid #293848; }.ml-mobile-navigation > span { color: #aabbd0; font-size: 12px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }.ml-menu-button { display: flex; gap: 9px; align-items: center; background: #1b2b40; border: 1px solid #3d5572; border-radius: 5px; color: #dfebf9; padding: 9px 12px; font: inherit; font-size: 13px; white-space: nowrap; cursor: pointer; }.ml-reader-sidebar { display: none; position: static; max-height: none; padding: 24px 0 10px; border-bottom: 1px solid #293848; }.ml-reader-sidebar.is-open { display: block; }.ml-sidebar-label { margin-bottom: 14px; }.ml-nav-group { margin-bottom: 12px; }.ml-sidebar-home { margin: 5px 0 10px 10px; }.ml-reading-pane { padding: 36px 0 75px; }.ml-reading-breadcrumb { margin-bottom: 30px; }.ml-reading-rule { margin: 28px 0; } }
 @media (prefers-reduced-motion: reduce) { .ml-reading-pane, .ml-group-toggle span { transition: none; } }
+
+/* Keep the reader sidebar attached to the viewport while the page scrolls. */
+.App.ml-reader-app { overflow-x: clip; }
+@media (max-width: 800px) { .ml-mobile-navigation { position: sticky; top: 0; z-index: 20; background: #0d1016; } .ml-reader-sidebar.is-open { position: sticky; top: 65px; max-height: calc(100vh - 75px); overflow-y: auto; background: #0d1016; z-index: 19; } }

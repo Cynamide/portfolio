@@ -62,13 +62,12 @@ export const MLSystems = () => {
     <div className="ml-reader-shell">
       <header className="ml-reader-header">
         <a className="ml-home-link" href="/" aria-label="Arjit Agarwal, home">A<span>.</span></a>
-        <a className="ml-reader-brand" href={base} onClick={event => navigate(event, fallback)}>ML Systems <span>Learning notes</span></a>
+        <a className="ml-reader-brand" href={base} onClick={event => navigate(event, fallback)}>ML Systems</a>
         <a className="ml-back-link" href="/#blog">Back to blog</a>
       </header>
       <div className="ml-mobile-navigation"><button type="button" className="ml-menu-button" aria-expanded={drawerOpen} aria-controls="ml-sidebar" onClick={() => setDrawerOpen(!drawerOpen)}><span aria-hidden="true">☰</span> {drawerOpen ? "Hide topics" : "Browse topics"}</button><span>{note?.title || "Page not found"}</span></div>
       <div className="ml-reader-layout">
         <aside id="ml-sidebar" className={`ml-reader-sidebar ${drawerOpen ? "is-open" : ""}`} aria-label="ML Systems topics">
-          <p className="ml-sidebar-label">EXPLORE THE NOTES</p>
           <nav aria-label="Notes by topic">{groups.map(group => <div className="ml-nav-group" key={group.slug}>
             <button type="button" className="ml-group-toggle" aria-expanded={expanded[group.slug]} onClick={() => setExpanded(value => ({ ...value, [group.slug]: !value[group.slug] }))}>{group.title}<span aria-hidden="true" className={expanded[group.slug] ? "expanded" : ""}>⌄</span></button>
             {expanded[group.slug] && <ul>{group.notes.map(item => { const target = notes.find(n => n.slug === item.slug); return <li key={item.slug}><a href={target.href} aria-current={note?.slug === item.slug ? "page" : undefined} onClick={event => navigate(event, target)}>{item.title}</a></li>; })}</ul>}

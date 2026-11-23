@@ -23,7 +23,7 @@ function App() {
     AOS.refresh();
   }, []);
   if (/^\/blog\/ml-systems(?:\/|$)/.test(window.location.pathname)) {
-    return <div className="App"><Cursor /><MLSystems /></div>;
+    return <div className="App ml-reader-app"><Cursor /><MLSystems /></div>;
   }
   return (
     <div className="App">
